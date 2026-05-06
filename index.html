@@ -1631,6 +1631,72 @@ footer{
   text-transform:uppercase;
 }
 
+/* ===== Floating Call Button (Mobile only) ===== */
+.call-fab{
+  position:fixed;
+  bottom:1.2rem;
+  right:1.2rem;
+  z-index:998;
+  display:none;
+  align-items:center;
+  gap:.6rem;
+  background:var(--terracotta);
+  color:var(--paper);
+  padding:.95rem 1.3rem .95rem 1.1rem;
+  border-radius:100px;
+  text-decoration:none;
+  font-family:'DM Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:500;
+  box-shadow:0 12px 30px rgba(181,83,46,.45),
+             0 4px 12px rgba(42,30,21,.25);
+  animation:fabIn .6s cubic-bezier(.65,0,.35,1) 2.5s both,
+            fabPulse 2.4s ease-in-out 3.2s infinite;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.call-fab:active{
+  transform:scale(.94);
+  box-shadow:0 6px 18px rgba(181,83,46,.4);
+}
+.call-fab .fab-icon{
+  width:34px;height:34px;
+  background:var(--paper);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.call-fab .fab-icon svg{
+  width:16px;height:16px;
+  fill:var(--terracotta);
+}
+.call-fab .fab-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.2;
+  gap:2px;
+}
+.call-fab .fab-text small{
+  font-family:'Fraunces',serif;
+  font-size:.62rem;
+  font-style:italic;
+  letter-spacing:.1em;
+  text-transform:none;
+  color:rgba(245,237,223,.75);
+  font-weight:300;
+}
+@keyframes fabIn{
+  from{opacity:0;transform:translateY(80px) scale(.85)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes fabPulse{
+  0%,100%{box-shadow:0 12px 30px rgba(181,83,46,.45),0 4px 12px rgba(42,30,21,.25),0 0 0 0 rgba(181,83,46,.5)}
+  50%{box-shadow:0 12px 30px rgba(181,83,46,.45),0 4px 12px rgba(42,30,21,.25),0 0 0 14px rgba(181,83,46,0)}
+}
+
 /* ===== Mobile ===== */
 @media (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:3rem}
@@ -1662,6 +1728,7 @@ footer{
 @media (max-width:768px){
   .top-ticker{padding:.5rem 1rem;font-size:.6rem;letter-spacing:.2em}
   .top-ticker .ticker-mid{display:none}
+  .call-fab{display:inline-flex}
   nav{padding:1rem 1.2rem;top:28px}
   nav.scrolled{padding:.7rem 1.2rem}
   .nav-links{
@@ -1742,6 +1809,9 @@ footer{
   .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
   .hero-cta{flex-direction:column;align-items:stretch}
   .btn{justify-content:center}
+  .call-fab{padding:.85rem 1.1rem .85rem .95rem;font-size:.68rem}
+  .call-fab .fab-icon{width:30px;height:30px}
+  .call-fab .fab-icon svg{width:14px;height:14px}
 }
 
 /* Reduced motion */
@@ -2284,6 +2354,19 @@ footer{
     <div>Yeniköy · Sarıyer · İstanbul</div>
   </div>
 </footer>
+
+<!-- Floating Call Button (Mobile) -->
+<a href="tel:+902122234000" class="call-fab" aria-label="Hemen Ara: 0212 223 40 00">
+  <span class="fab-icon">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1 1 0 0 0-1.02.24l-2.2 2.2a15.05 15.05 0 0 1-6.59-6.58l2.2-2.21a1 1 0 0 0 .25-1.02A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.39 7.61 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/>
+    </svg>
+  </span>
+  <span class="fab-text">
+    Hemen Ara
+    <small>0212 223 40 00</small>
+  </span>
+</a>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Görsel önizleme">
