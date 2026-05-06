@@ -4,7 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bakinka — Pasta & Lezzet Sanatı | Bakü'den Gelen Kat Kat Lezzet</title>
-<meta name="description" content="Bakinka, Bakü'nün geleneksel Medovik tarifinden ilhamla hazırlanan, kat kat ballı premium pastadır. Sarıyer Yeniköy'de günlük üretim.">
+<meta name="description" content="Bakinka, Bakü'nün geleneksel Medovik tarifinden ilhamla hazırlanan, kat kat ballı premium pastadır. Sarıyer Yeniköy'de günlük üretim, profesyonel pastacılık.">
+<meta name="keywords" content="bakinka, medovik, ballı pasta, kat kat pasta, sarıyer pasta, yeniköy pastane, premium pasta, bakü pastası">
+<meta name="author" content="Bakinka">
+<link rel="canonical" href="https://www.bakinka.com.tr/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bakinka — Pasta & Lezzet Sanatı">
+<meta property="og:description" content="Bakü'den İstanbul'a, kat kat emek, kat kat lezzet. Sarıyer Yeniköy'de günlük üretim.">
+<meta property="og:image" content="https://www.bakinka.com.tr/images/bakinka1.webp">
+<meta property="og:url" content="https://www.bakinka.com.tr/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Bakinka">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bakinka — Pasta & Lezzet Sanatı">
+<meta name="twitter:description" content="Bakü'den gelen kat kat ballı pasta. Sarıyer Yeniköy.">
+<meta name="twitter:image" content="https://www.bakinka.com.tr/images/bakinka1.webp">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="images/bakinka-logo.png">
+<link rel="apple-touch-icon" href="images/bakinka-logo.png">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Bakery",
+  "name":"Bakinka",
+  "image":"https://www.bakinka.com.tr/images/bakinka1.webp",
+  "description":"Bakü'nün geleneksel Medovik tarifinden ilhamla hazırlanan kat kat ballı premium pasta.",
+  "url":"https://www.bakinka.com.tr",
+  "telephone":"+902122234000",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Yeniköy Mah. Hacib Sok. No:4",
+    "addressLocality":"Sarıyer",
+    "addressRegion":"İstanbul",
+    "addressCountry":"TR"
+  },
+  "geo":{
+    "@type":"GeoCoordinates",
+    "latitude":41.1117,
+    "longitude":29.0817
+  },
+  "priceRange":"₺₺₺",
+  "servesCuisine":["Pasta","Tatlı","Medovik","Bakü Mutfağı"]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +87,7 @@ body{
   position:fixed;
   width:400px;height:400px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(212,164,55,0.15) 0%,transparent 60%);
+  background:radial-gradient(circle,rgba(212,164,55,0.18) 0%,transparent 60%);
   pointer-events:none;
   z-index:1;
   transform:translate(-50%,-50%);
@@ -53,7 +102,7 @@ body{
   z-index:9999;
   display:flex;align-items:center;justify-content:center;
   flex-direction:column;
-  transition:opacity 1s ease,visibility 1s;
+  transition:opacity 0.8s ease,visibility 0.8s;
 }
 .loader.hidden{opacity:0;visibility:hidden}
 .loader-logo{
@@ -61,12 +110,10 @@ body{
   font-size:clamp(3rem,8vw,5rem);
   color:var(--dark-brown);
   letter-spacing:0.15em;
-  position:relative;
-  overflow:hidden;
 }
 .loader-logo span{
   display:inline-block;
-  animation:loaderUp 0.8s cubic-bezier(0.65,0,0.35,1) forwards;
+  animation:loaderUp 0.6s cubic-bezier(0.65,0,0.35,1) forwards;
   opacity:0;
   transform:translateY(100%);
 }
@@ -75,7 +122,7 @@ body{
   width:0;height:1px;
   background:var(--gold);
   margin-top:1.5rem;
-  animation:loaderLine 1.5s ease 0.8s forwards;
+  animation:loaderLine 1s ease 0.5s forwards;
 }
 @keyframes loaderLine{to{width:200px}}
 
@@ -90,16 +137,18 @@ nav{
   transition:all 0.4s ease;
 }
 nav.scrolled{
-  padding:0.7rem 3rem;
-  box-shadow:0 4px 30px rgba(59,42,31,0.08);
+  padding:0.6rem 3rem;
+  box-shadow:0 4px 30px rgba(59,42,31,0.1);
 }
 .nav-logo{
-  display:flex;align-items:center;gap:0.8rem;
+  display:flex;align-items:center;gap:0.6rem;
   text-decoration:none;
 }
 .nav-logo img{
-  height:55px;width:auto;
+  height:60px;width:60px;
+  object-fit:contain;
   transition:transform 0.4s ease;
+  mix-blend-mode:multiply;
 }
 .nav-logo:hover img{transform:rotate(-5deg) scale(1.05)}
 .nav-logo-text{
@@ -112,7 +161,7 @@ nav.scrolled{
 .nav-logo-text small{
   display:block;
   font-family:'Cormorant Garamond',serif;
-  font-size:0.65rem;
+  font-size:0.62rem;
   font-style:italic;
   letter-spacing:0.3em;
   color:var(--deep-gold);
@@ -151,6 +200,7 @@ nav.scrolled{
   flex-direction:column;
   gap:5px;cursor:pointer;
   background:none;border:none;
+  padding:0.5rem;
 }
 .nav-toggle span{
   width:28px;height:1.5px;
@@ -158,7 +208,7 @@ nav.scrolled{
   transition:all 0.3s;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero ===== */
 .hero{
   min-height:100vh;
   position:relative;
@@ -173,7 +223,7 @@ nav.scrolled{
   top:-200px;right:-200px;
   width:600px;height:600px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(242,193,78,0.25) 0%,transparent 70%);
+  background:radial-gradient(circle,rgba(242,193,78,0.3) 0%,transparent 70%);
   animation:float 12s ease-in-out infinite;
 }
 .hero::after{
@@ -182,7 +232,7 @@ nav.scrolled{
   bottom:-150px;left:-150px;
   width:500px;height:500px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(212,164,55,0.18) 0%,transparent 70%);
+  background:radial-gradient(circle,rgba(212,164,55,0.22) 0%,transparent 70%);
   animation:float 15s ease-in-out infinite reverse;
 }
 @keyframes float{
@@ -192,7 +242,7 @@ nav.scrolled{
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1.05fr 0.95fr;
   gap:4rem;
   max-width:1400px;
   margin:0 auto;
@@ -213,7 +263,7 @@ nav.scrolled{
   text-transform:uppercase;
   margin-bottom:1.5rem;
   opacity:0;
-  animation:fadeUp 1s ease 1.5s forwards;
+  animation:fadeUp 1s ease 0.8s forwards;
 }
 .hero-badge::before{
   content:'';
@@ -236,8 +286,8 @@ nav.scrolled{
   transform:translateY(100%);
   animation:fadeUp 1s cubic-bezier(0.65,0,0.35,1) forwards;
 }
-.hero h1 .word:nth-child(1){animation-delay:1.6s}
-.hero h1 .word:nth-child(2){animation-delay:1.8s}
+.hero h1 .word:nth-child(1){animation-delay:0.9s}
+.hero h1 .word:nth-child(2){animation-delay:1.1s}
 .hero h1 .accent{
   font-family:'Cormorant Garamond',serif;
   font-style:italic;
@@ -259,14 +309,14 @@ nav.scrolled{
   max-width:480px;
   font-weight:400;
   opacity:0;
-  animation:fadeUp 1s ease 2.2s forwards;
+  animation:fadeUp 1s ease 1.4s forwards;
 }
 
 .hero-cta{
   display:flex;gap:1.5rem;align-items:center;
   flex-wrap:wrap;
   opacity:0;
-  animation:fadeUp 1s ease 2.5s forwards;
+  animation:fadeUp 1s ease 1.6s forwards;
 }
 .btn{
   display:inline-flex;align-items:center;gap:0.7rem;
@@ -308,41 +358,60 @@ nav.scrolled{
   color:var(--cream);
 }
 
-/* Hero Image */
+/* Hero Image — bakinka1 is portrait 3:4, perfect for vertical hero */
 .hero-visual{
   position:relative;
-  height:600px;
+  height:680px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-.hero-img-main{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:90%;height:90%;
-  object-fit:cover;
-  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  box-shadow:0 30px 80px rgba(59,42,31,0.25);
+.hero-img-frame{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  height:100%;
   opacity:0;
-  animation:heroImgIn 1.5s cubic-bezier(0.65,0,0.35,1) 1.2s forwards;
+  animation:heroImgIn 1.5s cubic-bezier(0.65,0,0.35,1) 0.5s forwards;
 }
 @keyframes heroImgIn{
-  from{opacity:0;transform:translate(-50%,-50%) scale(0.8) rotate(-10deg)}
-  to{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+  from{opacity:0;transform:scale(0.85) rotate(-5deg)}
+  to{opacity:1;transform:scale(1) rotate(0)}
 }
-.hero-img-main:hover{
-  animation:heroImgWobble 6s ease-in-out infinite;
+.hero-img-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50% 50% 50% 50% / 55% 55% 45% 45%;
+  box-shadow:0 30px 80px rgba(59,42,31,0.25);
+  animation:heroImgWobble 12s ease-in-out infinite 2s;
 }
 @keyframes heroImgWobble{
-  0%,100%{border-radius:50% 50% 50% 50% / 60% 60% 40% 40%}
-  50%{border-radius:60% 40% 50% 50% / 40% 60% 50% 60%}
+  0%,100%{border-radius:50% 50% 50% 50% / 55% 55% 45% 45%}
+  50%{border-radius:55% 45% 50% 50% / 45% 60% 40% 55%}
+}
+.hero-img-decoration{
+  position:absolute;
+  width:120%;
+  height:120%;
+  border:1px solid var(--gold);
+  border-radius:50% 50% 50% 50% / 55% 55% 45% 45%;
+  top:-10%;left:-10%;
+  opacity:0.4;
+  animation:rotateSlow 60s linear infinite;
+}
+@keyframes rotateSlow{
+  to{transform:rotate(360deg)}
 }
 
 .hero-decoration{
   position:absolute;
   font-family:'Italiana',serif;
   font-size:13rem;
-  color:rgba(212,164,55,0.08);
+  color:rgba(212,164,55,0.1);
   pointer-events:none;
   z-index:0;
+  font-weight:400;
 }
 .hero-deco-1{top:5%;left:-3%;}
 .hero-deco-2{bottom:5%;right:-3%;}
@@ -357,11 +426,12 @@ nav.scrolled{
   color:var(--deep-gold);
   text-transform:uppercase;
   opacity:0;
-  animation:fadeUp 1s ease 3s forwards;
+  animation:fadeUp 1s ease 2s forwards;
+  text-align:center;
 }
 .scroll-line{
   width:1px;height:50px;
-  background:var(--gold);
+  background:rgba(212,164,55,0.3);
   margin:1rem auto 0;
   position:relative;
   overflow:hidden;
@@ -369,9 +439,9 @@ nav.scrolled{
 .scroll-line::after{
   content:'';
   position:absolute;
-  top:0;left:0;
+  top:-50%;left:0;
   width:100%;height:50%;
-  background:var(--dark-brown);
+  background:var(--gold);
   animation:scrollLine 2s ease-in-out infinite;
 }
 @keyframes scrollLine{
@@ -389,12 +459,13 @@ nav.scrolled{
 }
 .marquee-track{
   display:flex;
-  animation:marquee 30s linear infinite;
+  animation:marquee 35s linear infinite;
   white-space:nowrap;
+  width:max-content;
 }
 .marquee-track span{
   font-family:'Italiana',serif;
-  font-size:1.8rem;
+  font-size:1.7rem;
   letter-spacing:0.3em;
   margin:0 3rem;
   color:var(--cream);
@@ -470,7 +541,7 @@ section{
 }
 .reveal-img.active{clip-path:inset(0 0 0 0)}
 
-/* ===== Biz Kimiz ===== */
+/* ===== Biz Kimiz — bakinka2 (kare, kara tahta) for atmosphere + bakinka6 (kare, premium) for detail ===== */
 .about{
   background:var(--cream);
   position:relative;
@@ -481,7 +552,7 @@ section{
   top:5%;right:-2%;
   font-family:'Italiana',serif;
   font-size:14rem;
-  color:rgba(212,164,55,0.06);
+  color:rgba(212,164,55,0.08);
   letter-spacing:0.1em;
   pointer-events:none;
   font-weight:400;
@@ -497,28 +568,33 @@ section{
   position:relative;
   height:650px;
 }
+/* bakinka2 is square 900x900, sits naturally */
 .about-img-1{
   position:absolute;
   top:0;left:0;
-  width:65%;height:60%;
-  object-fit:cover;
-  border-radius:4px;
-  box-shadow:0 20px 60px rgba(59,42,31,0.2);
-}
-.about-img-2{
-  position:absolute;
-  bottom:0;right:0;
-  width:55%;height:55%;
+  width:65%;
+  aspect-ratio:1/1;
   object-fit:cover;
   border-radius:4px;
   box-shadow:0 20px 60px rgba(59,42,31,0.25);
+}
+/* bakinka6 is square 1000x1000 */
+.about-img-2{
+  position:absolute;
+  bottom:0;right:0;
+  width:60%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:4px;
+  box-shadow:0 20px 60px rgba(59,42,31,0.3);
   border:8px solid var(--cream);
+  z-index:2;
 }
 .about-stamp{
   position:absolute;
-  top:50%;right:5%;
-  transform:translateY(-50%) rotate(-15deg);
-  width:160px;height:160px;
+  top:42%;left:55%;
+  transform:translate(-50%,-50%) rotate(-12deg);
+  width:140px;height:140px;
   border:1px solid var(--gold);
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -528,22 +604,28 @@ section{
   color:var(--dark-brown);
   text-align:center;
   z-index:3;
-  animation:rotate 20s linear infinite;
+  box-shadow:0 10px 30px rgba(59,42,31,0.15);
+}
+.about-stamp::before{
+  content:'';
+  position:absolute;
+  inset:6px;
+  border:1px solid rgba(212,164,55,0.4);
+  border-radius:50%;
+  animation:rotateSlow 25s linear infinite;
 }
 .about-stamp-inner{
-  font-size:0.7rem;
+  font-size:0.65rem;
   letter-spacing:0.2em;
   line-height:1.4;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
 }
 .about-stamp-big{
-  font-size:1.5rem;
+  font-size:1.3rem;
   letter-spacing:0.1em;
   margin:0.3rem 0;
   color:var(--deep-gold);
-}
-@keyframes rotate{
-  from{transform:translateY(-50%) rotate(0deg)}
-  to{transform:translateY(-50%) rotate(360deg)}
 }
 
 .about-text p{
@@ -578,7 +660,7 @@ section{
   text-transform:uppercase;
 }
 
-/* ===== Bakinka Nedir ===== */
+/* ===== Bakinka Nedir — bakinka3 (16:9 kat detay), bakinka4 (16:9 dilimler), bakinka5 (16:9 kesit) ===== */
 .bakinka{
   background:var(--dark-brown);
   color:var(--cream);
@@ -590,7 +672,15 @@ section{
   position:absolute;
   top:-100px;left:-100px;
   width:400px;height:400px;
-  background:radial-gradient(circle,rgba(242,193,78,0.15) 0%,transparent 70%);
+  background:radial-gradient(circle,rgba(242,193,78,0.18) 0%,transparent 70%);
+  border-radius:50%;
+}
+.bakinka::after{
+  content:'';
+  position:absolute;
+  bottom:-100px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(212,164,55,0.12) 0%,transparent 70%);
   border-radius:50%;
 }
 
@@ -600,10 +690,12 @@ section{
 
 .bakinka-hero{
   text-align:center;
-  margin-bottom:5rem;
+  margin-bottom:4rem;
   max-width:900px;
   margin-left:auto;
   margin-right:auto;
+  position:relative;
+  z-index:2;
 }
 .bakinka-hero p{
   font-family:'Cormorant Garamond',serif;
@@ -613,13 +705,15 @@ section{
   line-height:1.7;
 }
 
+/* bakinka4 is 16:9 horizontal — wide cinematic banner */
 .bakinka-feature-img{
   width:100%;
-  height:550px;
+  aspect-ratio:16/9;
   object-fit:cover;
   border-radius:4px;
   margin:4rem 0;
-  filter:contrast(1.05);
+  filter:contrast(1.05) saturate(1.05);
+  display:block;
 }
 
 .bakinka-grid{
@@ -628,14 +722,16 @@ section{
   gap:5rem;
   align-items:center;
   margin-top:5rem;
+  position:relative;
+  z-index:2;
 }
-.bakinka-grid.reverse{
-  grid-template-columns:1fr 1fr;
-}
+/* bakinka3 is 16:9 — display naturally */
 .bakinka-grid img{
-  width:100%;height:600px;
+  width:100%;
+  aspect-ratio:16/10;
   object-fit:cover;
   border-radius:4px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 .bakinka-text h3{
   font-family:'Italiana',serif;
@@ -643,6 +739,7 @@ section{
   margin-bottom:1.5rem;
   color:var(--honey);
   letter-spacing:0.03em;
+  line-height:1.1;
 }
 .bakinka-text p{
   font-family:'Cormorant Garamond',serif;
@@ -653,7 +750,7 @@ section{
 }
 .bakinka-quote{
   font-family:'Italiana',serif;
-  font-size:2rem;
+  font-size:1.8rem;
   color:var(--gold);
   font-style:italic;
   margin:2rem 0;
@@ -665,9 +762,11 @@ section{
 .layers-visual{
   display:flex;
   justify-content:center;
-  gap:4rem;
-  margin:5rem 0;
+  gap:5rem;
+  margin:6rem 0 4rem;
   flex-wrap:wrap;
+  position:relative;
+  z-index:2;
 }
 .layer-item{
   text-align:center;
@@ -692,7 +791,7 @@ section{
 }
 .layer-label{
   font-family:'Cormorant Garamond',serif;
-  font-size:1rem;
+  font-size:0.95rem;
   letter-spacing:0.3em;
   color:var(--soft-beige);
   text-transform:uppercase;
@@ -701,22 +800,24 @@ section{
   display:block;
 }
 
-/* ===== Medovik Section ===== */
+/* ===== Medovik — bakinka7 (16:9 hero dilim) ===== */
 .medovik{
   background:linear-gradient(135deg,var(--soft-beige) 0%,var(--cream) 100%);
   position:relative;
 }
 .medovik-grid{
   display:grid;
-  grid-template-columns:1.2fr 1fr;
+  grid-template-columns:1.1fr 1fr;
   gap:5rem;
   align-items:center;
 }
+/* bakinka7 is 16:9 — make it taller via aspect ratio */
 .medovik img{
-  width:100%;height:700px;
+  width:100%;
+  aspect-ratio:4/5;
   object-fit:cover;
   border-radius:4px;
-  box-shadow:0 30px 70px rgba(59,42,31,0.2);
+  box-shadow:0 30px 70px rgba(59,42,31,0.25);
 }
 .medovik-text p{
   font-family:'Cormorant Garamond',serif;
@@ -737,23 +838,31 @@ section{
   padding:0;
   background:var(--cream);
   overflow:hidden;
+  border-top:1px solid rgba(212,164,55,0.15);
+  border-bottom:1px solid rgba(212,164,55,0.15);
 }
 .gallery-track{
   display:flex;
-  gap:2rem;
-  padding:4rem 3rem;
-  animation:galleryScroll 40s linear infinite;
+  gap:1.5rem;
+  padding:3rem 0;
+  animation:galleryScroll 50s linear infinite;
   width:max-content;
 }
 .gallery-track:hover{animation-play-state:paused}
-.gallery-track img{
-  width:400px;height:500px;
-  object-fit:cover;
-  border-radius:4px;
+.gallery-track .gallery-item{
+  width:380px;
+  height:480px;
   flex-shrink:0;
-  transition:transform 0.6s ease;
+  overflow:hidden;
+  border-radius:4px;
+  position:relative;
 }
-.gallery-track img:hover{transform:scale(1.05)}
+.gallery-track img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 0.8s ease;
+}
+.gallery-track .gallery-item:hover img{transform:scale(1.08)}
 @keyframes galleryScroll{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
@@ -768,20 +877,21 @@ section{
 .contact::before{
   content:'İletişim';
   position:absolute;
-  bottom:-50px;left:50%;
+  bottom:-40px;left:50%;
   transform:translateX(-50%);
   font-family:'Italiana',serif;
-  font-size:18rem;
-  color:rgba(212,164,55,0.07);
+  font-size:14rem;
+  color:rgba(212,164,55,0.08);
   pointer-events:none;
   white-space:nowrap;
+  font-weight:400;
 }
 
 .contact-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:5rem;
-  align-items:center;
+  align-items:start;
   position:relative;
   z-index:2;
 }
@@ -793,7 +903,7 @@ section{
   padding-bottom:2.5rem;
   border-bottom:1px solid rgba(212,164,55,0.3);
 }
-.contact-item:last-child{border:none}
+.contact-item:last-of-type{border:none}
 .contact-label{
   font-size:0.85rem;
   letter-spacing:0.3em;
@@ -805,7 +915,7 @@ section{
 }
 .contact-value{
   font-family:'Italiana',serif;
-  font-size:1.8rem;
+  font-size:1.7rem;
   color:var(--dark-brown);
   line-height:1.3;
   letter-spacing:0.02em;
@@ -814,19 +924,43 @@ section{
   color:inherit;
   text-decoration:none;
   transition:color 0.3s;
-  position:relative;
 }
 .contact-value a:hover{color:var(--deep-gold)}
 
+.contact-side{
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+}
 .contact-image{
   position:relative;
-  height:600px;
+  width:100%;
+  aspect-ratio:1/1;
+  overflow:hidden;
+  border-radius:4px;
+  box-shadow:0 30px 70px rgba(59,42,31,0.2);
 }
 .contact-image img{
   width:100%;height:100%;
   object-fit:cover;
-  border-radius:300px 300px 4px 4px;
-  box-shadow:0 30px 70px rgba(59,42,31,0.25);
+  transition:transform 1s ease;
+}
+.contact-image:hover img{transform:scale(1.05)}
+
+/* Map */
+.contact-map{
+  width:100%;
+  height:280px;
+  border-radius:4px;
+  overflow:hidden;
+  border:1px solid rgba(212,164,55,0.3);
+  box-shadow:0 15px 40px rgba(59,42,31,0.12);
+}
+.contact-map iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  filter:sepia(0.15) saturate(1.1);
 }
 
 /* ===== Footer ===== */
@@ -835,10 +969,21 @@ footer{
   color:var(--cream);
   padding:4rem 3rem 2rem;
   text-align:center;
+  position:relative;
+}
+.footer-logo-img{
+  width:90px;
+  height:90px;
+  margin:0 auto 1rem;
+  display:block;
+  border-radius:50%;
+  background:var(--logo-bg);
+  padding:8px;
+  object-fit:contain;
 }
 .footer-logo{
   font-family:'Italiana',serif;
-  font-size:3rem;
+  font-size:2.5rem;
   letter-spacing:0.2em;
   color:var(--gold);
   margin-bottom:0.5rem;
@@ -865,53 +1010,86 @@ footer{
 
 /* ===== Mobile ===== */
 @media (max-width:900px){
-  nav{padding:1rem 1.5rem}
+  nav{padding:0.8rem 1.2rem}
+  nav.scrolled{padding:0.6rem 1.2rem}
   .nav-links{
     position:fixed;
     top:80px;left:0;right:0;
     background:var(--logo-bg);
     flex-direction:column;
     gap:0;
-    padding:2rem;
+    padding:1.5rem 2rem;
     transform:translateY(-150%);
     transition:transform 0.5s ease;
     border-bottom:1px solid rgba(212,164,55,0.2);
+    box-shadow:0 4px 30px rgba(59,42,31,0.1);
   }
   .nav-links.open{transform:translateY(0)}
   .nav-links li{padding:1rem 0;border-bottom:1px solid rgba(212,164,55,0.1)}
+  .nav-links li:last-child{border:none}
   .nav-toggle{display:flex}
   .nav-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-  .nav-logo img{height:45px}
-  .nav-logo-text{font-size:1.2rem}
+  .nav-logo img{height:48px;width:48px}
+  .nav-logo-text{font-size:1.15rem}
+  .nav-logo-text small{font-size:0.55rem}
 
-  .hero{padding:7rem 1.5rem 3rem;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:3rem}
-  .hero-visual{height:450px;order:-1}
-  .hero h1{font-size:clamp(3rem,12vw,5rem)}
+  .hero{padding:7rem 1.2rem 3rem;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{height:420px;order:-1}
+  .hero-img-frame{max-width:340px}
+  .hero h1{font-size:clamp(2.8rem,12vw,4rem)}
   .scroll-indicator{display:none}
+  .hero-decoration{font-size:5rem}
 
-  section{padding:5rem 1.5rem}
-  .about-grid,.bakinka-grid,.bakinka-grid.reverse,
+  section{padding:4.5rem 1.2rem}
+  .about-grid,.bakinka-grid,
   .medovik-grid,.contact-grid{
-    grid-template-columns:1fr;gap:3rem;
+    grid-template-columns:1fr;gap:2.5rem;
   }
-  .about-images{height:450px}
-  .about-stamp{width:120px;height:120px;right:0}
-  .about-stamp-big{font-size:1.2rem}
+  .about-images{height:auto;display:flex;flex-direction:column;gap:1rem}
+  .about-img-1,.about-img-2{
+    position:static;
+    width:100%;
+    aspect-ratio:4/3;
+  }
+  .about-img-2{border:none}
+  .about-stamp{display:none}
+  .about::before{font-size:5rem}
 
-  .bakinka-feature-img,.bakinka-grid img,.medovik img{height:400px}
-  .contact-image{height:400px}
-  .layers-visual{gap:2rem}
+  .bakinka-feature-img{aspect-ratio:4/3}
+  .bakinka-grid img{aspect-ratio:4/3}
+  .medovik img{aspect-ratio:4/3}
+  .contact-image{aspect-ratio:4/3}
+
+  .layers-visual{gap:2rem;margin:4rem 0 2rem}
   .layer-num{font-size:3.5rem}
-  .gallery-track img{width:280px;height:350px}
+  .gallery-track .gallery-item{width:260px;height:340px}
 
-  .marquee-track span{font-size:1.2rem;margin:0 1.5rem}
+  .marquee-track span{font-size:1.1rem;margin:0 1.2rem}
+  .bakinka-quote{font-size:1.4rem;padding-left:1.2rem}
 
-  .hero-decoration{font-size:6rem}
-  .about::before{font-size:6rem}
+  .contact::before{font-size:6rem;bottom:-20px}
+  .contact-value{font-size:1.4rem}
+  .contact-map{height:240px}
+  .footer-logo{font-size:2rem}
+}
+
+@media (max-width:480px){
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+  }
+  .marquee-track,.gallery-track{animation:none}
 }
 </style>
 </head>
@@ -921,12 +1099,12 @@ footer{
 <div class="loader" id="loader">
   <div class="loader-logo">
     <span style="animation-delay:0s">B</span>
-    <span style="animation-delay:0.1s">A</span>
-    <span style="animation-delay:0.2s">K</span>
-    <span style="animation-delay:0.3s">İ</span>
-    <span style="animation-delay:0.4s">N</span>
-    <span style="animation-delay:0.5s">K</span>
-    <span style="animation-delay:0.6s">A</span>
+    <span style="animation-delay:0.08s">A</span>
+    <span style="animation-delay:0.16s">K</span>
+    <span style="animation-delay:0.24s">İ</span>
+    <span style="animation-delay:0.32s">N</span>
+    <span style="animation-delay:0.4s">K</span>
+    <span style="animation-delay:0.48s">A</span>
   </div>
   <div class="loader-line"></div>
 </div>
@@ -936,11 +1114,11 @@ footer{
 
 <!-- Navigation -->
 <nav id="nav">
-  <a href="#anasayfa" class="nav-logo">
-    <img src="https://www.bakinka.com.tr/images/bakinka-logo.png" alt="Bakinka">
+  <a href="#anasayfa" class="nav-logo" aria-label="Bakinka Anasayfa">
+    <img src="images/bakinka-logo.png" alt="Bakinka Logo">
     <div class="nav-logo-text">
       BAKİNKA
-      <small>Pasta & Lezzet Sanatı</small>
+      <small>Pasta &amp; Lezzet Sanatı</small>
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -949,12 +1127,12 @@ footer{
     <li><a href="#bakinka-nedir">Bakinka Nedir</a></li>
     <li><a href="#iletisim">İletişim</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Menüyü Aç/Kapat">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — bakinka1 (1086x1448 portrait, full cake with cinnamon) -->
 <section class="hero" id="anasayfa">
   <div class="hero-decoration hero-deco-1">B</div>
   <div class="hero-decoration hero-deco-2">k</div>
@@ -977,7 +1155,10 @@ footer{
     </div>
 
     <div class="hero-visual">
-      <img src="https://www.bakinka.com.tr/images/bakinka1.webp" alt="Bakinka Pasta" class="hero-img-main">
+      <div class="hero-img-frame">
+        <div class="hero-img-decoration"></div>
+        <img src="images/bakinka1.webp" alt="Bakinka — Bütün Pasta">
+      </div>
     </div>
   </div>
 
@@ -992,27 +1173,27 @@ footer{
   <div class="marquee-track">
     <span>Kat Kat Emek</span><span class="dot"></span>
     <span class="gold">Kat Kat Lezzet</span><span class="dot"></span>
-    <span>Bakü'den İstanbul'a</span><span class="dot"></span>
+    <span>Bakü'den Yeniköy'e</span><span class="dot"></span>
     <span class="gold">Günlük Üretim</span><span class="dot"></span>
     <span>Zarif Bir Bakü Dokunuşu</span><span class="dot"></span>
-    <span class="gold">Sarıyer · Yeniköy</span><span class="dot"></span>
-    <!-- duplicate -->
+    <span class="gold">Sarıyer · İstanbul</span><span class="dot"></span>
+    <!-- duplicate for seamless loop -->
     <span>Kat Kat Emek</span><span class="dot"></span>
     <span class="gold">Kat Kat Lezzet</span><span class="dot"></span>
-    <span>Bakü'den İstanbul'a</span><span class="dot"></span>
+    <span>Bakü'den Yeniköy'e</span><span class="dot"></span>
     <span class="gold">Günlük Üretim</span><span class="dot"></span>
     <span>Zarif Bir Bakü Dokunuşu</span><span class="dot"></span>
-    <span class="gold">Sarıyer · Yeniköy</span><span class="dot"></span>
+    <span class="gold">Sarıyer · İstanbul</span><span class="dot"></span>
   </div>
 </div>
 
-<!-- BIZ KIMIZ -->
+<!-- BIZ KIMIZ — bakinka2 (atelier kara tahta) + bakinka6 (premium spatula) -->
 <section class="about" id="biz-kimiz">
   <div class="container">
     <div class="about-grid">
       <div class="about-images">
-        <img src="https://www.bakinka.com.tr/images/bakinka2.webp" alt="Bakinka Atölyesi" class="about-img-1 reveal-img">
-        <img src="https://www.bakinka.com.tr/images/bakinka3.webp" alt="Bakinka Pasta Detay" class="about-img-2 reveal-img">
+        <img src="images/bakinka2.webp" alt="Bakinka Atölyesi" class="about-img-1 reveal-img">
+        <img src="images/bakinka6.webp" alt="Bakinka Pasta Detay" class="about-img-2 reveal-img">
         <div class="about-stamp">
           <div class="about-stamp-inner">— EST. —</div>
           <div class="about-stamp-big">YENİKÖY</div>
@@ -1033,7 +1214,8 @@ footer{
           </p>
           <p>
             Markamızın çıkış noktası, eski bir tarif yorumundan ilham alan kat kat ballı pasta fikridir.
-            Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta markasıdır.
+            Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta
+            markasıdır.
           </p>
           <p>
             Üretim sürecimizde kalite ve hijyen ön plandadır. Her ürün; günlük üretim anlayışıyla,
@@ -1055,7 +1237,7 @@ footer{
   </div>
 </section>
 
-<!-- BAKINKA NEDIR -->
+<!-- BAKINKA NEDIR — bakinka4 (geniş cinematic banner) + bakinka3 (kat detay) + bakinka5 (yan kesit) -->
 <section class="bakinka" id="bakinka-nedir">
   <div class="container">
     <div class="bakinka-hero">
@@ -1071,7 +1253,7 @@ footer{
       </div>
     </div>
 
-    <img src="https://www.bakinka.com.tr/images/bakinka4.webp" alt="Bakinka Pasta" class="bakinka-feature-img reveal-img">
+    <img src="images/bakinka4.webp" alt="Bakinka Dilimleri" class="bakinka-feature-img reveal-img">
 
     <div class="bakinka-grid">
       <div class="bakinka-text reveal">
@@ -1089,7 +1271,7 @@ footer{
           ise hem tanıdık hem de yeni bir deneyim oldu.
         </p>
       </div>
-      <img src="https://www.bakinka.com.tr/images/bakinka5.webp" alt="Bakinka Detay" class="reveal-img">
+      <img src="images/bakinka3.webp" alt="Bakinka Kat Detayı" class="reveal-img">
     </div>
 
     <div class="layers-visual">
@@ -1107,8 +1289,8 @@ footer{
       </div>
     </div>
 
-    <div class="bakinka-grid reverse">
-      <img src="https://www.bakinka.com.tr/images/bakinka6.webp" alt="Bakinka Sunum" class="reveal-img">
+    <div class="bakinka-grid">
+      <img src="images/bakinka5.webp" alt="Bakinka Yan Kesit" class="reveal-img">
       <div class="bakinka-text reveal reveal-delay-1">
         <h3>Gösteriş değil, gerçek lezzet.</h3>
         <p>
@@ -1127,11 +1309,11 @@ footer{
   </div>
 </section>
 
-<!-- MEDOVIK -->
+<!-- MEDOVIK — bakinka7 (16:9 dilim, premium) -->
 <section class="medovik">
   <div class="container">
     <div class="medovik-grid">
-      <img src="https://www.bakinka.com.tr/images/bakinka7.webp" alt="Medovik" class="reveal-img">
+      <img src="images/bakinka7.webp" alt="Medovik Dilim" class="reveal-img">
       <div class="medovik-text">
         <div class="reveal">
           <span class="section-label">Medovik Nedir</span>
@@ -1160,28 +1342,28 @@ footer{
   </div>
 </section>
 
-<!-- Gallery Strip -->
+<!-- Gallery Strip — Tüm 7 görsel farklı sırada -->
 <div class="gallery">
   <div class="gallery-track">
-    <img src="https://www.bakinka.com.tr/images/bakinka1.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka2.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka3.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka4.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka5.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka6.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka7.webp" alt="">
+    <div class="gallery-item"><img src="images/bakinka1.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka4.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka6.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka3.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka7.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka2.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka5.webp" alt=""></div>
     <!-- duplicate for seamless loop -->
-    <img src="https://www.bakinka.com.tr/images/bakinka1.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka2.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka3.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka4.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka5.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka6.webp" alt="">
-    <img src="https://www.bakinka.com.tr/images/bakinka7.webp" alt="">
+    <div class="gallery-item"><img src="images/bakinka1.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka4.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka6.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka3.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka7.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka2.webp" alt=""></div>
+    <div class="gallery-item"><img src="images/bakinka5.webp" alt=""></div>
   </div>
 </div>
 
-<!-- ILETISIM -->
+<!-- ILETISIM — harita + bakinka1 görseli -->
 <section class="contact" id="iletisim">
   <div class="container">
     <div class="contact-grid">
@@ -1211,11 +1393,21 @@ footer{
               <a href="https://www.bakinka.com.tr">bakinka.com.tr</a>
             </div>
           </div>
+
+          <div class="contact-map reveal reveal-delay-2">
+            <iframe
+              src="https://www.google.com/maps?q=Yeniköy+Mah.+Hacib+Sok.+No:4+Sarıyer+İstanbul&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bakinka Konum"></iframe>
+          </div>
         </div>
       </div>
 
-      <div class="contact-image reveal-img">
-        <img src="https://www.bakinka.com.tr/images/bakinka2.webp" alt="Bakinka">
+      <div class="contact-side">
+        <div class="contact-image reveal-img">
+          <img src="images/bakinka6.webp" alt="Bakinka">
+        </div>
       </div>
     </div>
   </div>
@@ -1223,8 +1415,8 @@ footer{
 
 <!-- Footer -->
 <footer>
-  <div class="footer-logo">BAKİNKA</div>
-  <div class="footer-tagline">Pasta & Lezzet Sanatı</div>
+  <img src="images/bakinka-logo.png" alt="Bakinka" class="footer-logo-img">
+  <div class="footer-tagline">Pasta &amp; Lezzet Sanatı</div>
   <div class="footer-divider"></div>
   <div class="footer-bottom">
     © 2026 Bakinka. Tüm hakları saklıdır. · Yeniköy · Sarıyer · İstanbul
@@ -1236,7 +1428,7 @@ footer{
 window.addEventListener('load',()=>{
   setTimeout(()=>{
     document.getElementById('loader').classList.add('hidden');
-  },2200);
+  },1500);
 });
 
 // Scroll nav
@@ -1261,7 +1453,7 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
 });
 
 // Cursor glow (desktop only)
-if(window.matchMedia('(hover:hover)').matches){
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   const glow=document.getElementById('cursorGlow');
   document.addEventListener('mousemove',e=>{
     glow.style.left=e.clientX+'px';
@@ -1276,18 +1468,28 @@ const observer=new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add('active');
+      observer.unobserve(entry.target);
     }
   });
-},{threshold:0.15,rootMargin:'0px 0px -80px 0px'});
+},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
 
 document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el));
 
 // Parallax for hero decorations
+let ticking=false;
 window.addEventListener('scroll',()=>{
-  const scroll=window.scrollY;
-  document.querySelectorAll('.hero-decoration').forEach((el,i)=>{
-    el.style.transform=`translateY(${scroll*(0.2+i*0.1)}px)`;
-  });
+  if(!ticking){
+    requestAnimationFrame(()=>{
+      const scroll=window.scrollY;
+      if(scroll<window.innerHeight){
+        document.querySelectorAll('.hero-decoration').forEach((el,i)=>{
+          el.style.transform=`translateY(${scroll*(0.2+i*0.1)}px)`;
+        });
+      }
+      ticking=false;
+    });
+    ticking=true;
+  }
 });
 </script>
 </body>
