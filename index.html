@@ -786,34 +786,38 @@ section{
   font-weight:400;
 }
 
+/* FIXED: Switched from rigid 12-col grid to a flexible 2-col layout.
+   Left column = images stacked. Right column = text + pillars stacked.
+   Both columns flow naturally and balance each other without empty space. */
 .about-grid{
   max-width:1500px;
   margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(12,1fr);
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem;
+  align-items:start;
+}
+.about-col-left{
+  display:flex;
+  flex-direction:column;
   gap:2rem;
 }
+.about-col-right{
+  display:flex;
+  flex-direction:column;
+  gap:2.5rem;
+}
 .about-img-1{
-  grid-column:1/7;
-  grid-row:1/3;
+  width:100%;
   aspect-ratio:4/5;
   object-fit:cover;
   border-radius:2px;
-  width:100%;
-  height:100%;
 }
 .about-img-2{
-  grid-column:8/13;
-  grid-row:1;
-  aspect-ratio:1/1;
+  width:100%;
+  aspect-ratio:4/3;
   object-fit:cover;
   border-radius:2px;
-  width:100%;
-}
-.about-text-block{
-  grid-column:1/7;
-  grid-row:3;
-  margin-top:0;
 }
 .about-text-block p{
   font-family:'Fraunces',serif;
@@ -843,9 +847,6 @@ section{
 }
 
 .about-pillars{
-  grid-column:8/13;
-  grid-row:2/4;
-  margin-top:0;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1rem;
@@ -884,9 +885,8 @@ section{
 }
 
 .about-signature{
-  grid-column:1/13;
-  grid-row:4;
-  margin-top:2rem;
+  max-width:1500px;
+  margin:3rem auto 0;
   padding-top:2rem;
   border-top:1px solid rgba(42,30,21,.15);
   display:flex;
@@ -1051,22 +1051,38 @@ section{
   text-transform:uppercase;
 }
 
-/* Two-column story */
+/* FIXED: bakinka-story now uses align-items:stretch and image fills available height,
+   so short text blocks don't leave huge empty space. Image height matches text column. */
 .bakinka-story{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:4rem;
-  align-items:center;
+  align-items:stretch;
   margin-bottom:4rem;
 }
 .bakinka-story.reverse{direction:rtl}
 .bakinka-story.reverse > *{direction:ltr}
 
-.bakinka-story img{
+.bakinka-story-text{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.bakinka-story-img{
+  position:relative;
   width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
+  min-height:420px;
+  max-height:560px;
   border-radius:2px;
+  overflow:hidden;
+}
+.bakinka-story-img img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 .bakinka-story h3{
   font-family:'Fraunces',serif;
@@ -1705,16 +1721,12 @@ footer{
   .manifesto-grid{grid-template-columns:1fr;gap:3rem}
   .manifesto-side{position:static}
   .about-header{grid-template-columns:1fr;gap:2rem}
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .about-img-1,.about-img-2,.about-text-block,.about-pillars,.about-signature{
-    grid-column:1/-1;
-    grid-row:auto;
-  }
-  .about-img-2{margin-top:0}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .about-pillars{grid-template-columns:1fr 1fr}
   .bakinka-story,.bakinka-story.reverse{
     grid-template-columns:1fr;gap:2.5rem;direction:ltr;
   }
+  .bakinka-story-img{min-height:380px;max-height:480px}
   .bakinka-process{grid-template-columns:1fr;}
   .proc{border-right:none;border-bottom:1px solid rgba(232,163,61,.2)}
   .proc:last-child{border-bottom:none}
@@ -1784,6 +1796,7 @@ footer{
   .bakinka-content{padding:5rem 1.2rem}
   .bakinka-question{padding:2.5rem 1.5rem}
   .bakinka-intro p{font-size:1.15rem}
+  .bakinka-story-img{min-height:340px;max-height:420px}
 
   .medovik{padding:5rem 1.2rem}
   .etym{flex-direction:column;align-items:flex-start;gap:1rem}
@@ -2027,7 +2040,7 @@ footer{
   </div>
 </div>
 
-<!-- BIZ KIMIZ -->
+<!-- BIZ KIMIZ — restructured: 2 columns, both flow naturally -->
 <section class="about" id="biz-kimiz">
   <div class="about-header">
     <div class="reveal">
@@ -2041,68 +2054,74 @@ footer{
   </div>
 
   <div class="about-grid">
-    <img src="images/bakinka2.webp" alt="Bakinka Atölyesi" class="about-img-1 reveal-img">
-    <img src="images/bakinka6.webp" alt="Bakinka Pasta Detayı" class="about-img-2 reveal-img">
-
-    <div class="about-text-block reveal">
-      <p class="first">
-        Markamızın çıkış noktası, eski bir tarif yorumundan ilham alan kat kat ballı pasta fikridir.
-        Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta
-        markasıdır.
-      </p>
-      <p>
-        Üretim sürecimizde <strong>kalite ve hijyen</strong> ön plandadır. Her ürün; günlük üretim
-        anlayışıyla, özenle seçilmiş malzemeler kullanılarak ve profesyonel pastacılık standartlarına
-        uygun şekilde hazırlanır.
-      </p>
-      <p>
-        Bizim için iyi bir pasta sadece güzel görünmekten ibaret değildir. Doku, hafiflik, aroma
-        dengesi ve her lokmada aynı kaliteyi sunabilmek önceliğimizdir. Bu nedenle tüm üretim süreci
-        titizlikle yürütülür.
-      </p>
-      <p>
-        Bakinka'nın temel yaklaşımı gerçek lezzete odaklanmaktır. <em>Yoğun değil dengeli, ağır değil
-        zarif, sıradan değil karakter sahibi</em> bir tat deneyimi sunmayı hedefliyoruz.
-      </p>
-      <p>
-        Yeniköy'de başlayan bu hikâye bugün; kaliteli üretim anlayışı ve özgün lezzetiyle büyümeye
-        devam ediyor.
-      </p>
+    <!-- Left column: stacked images -->
+    <div class="about-col-left">
+      <img src="images/bakinka2.webp" alt="Bakinka Atölyesi" class="about-img-1 reveal-img">
+      <img src="images/bakinka6.webp" alt="Bakinka Pasta Detayı" class="about-img-2 reveal-img">
     </div>
 
-    <div class="about-pillars reveal reveal-d2">
-      <div class="pillar">
-        <span class="num">— 01</span>
-        <h4>Günlük Üretim</h4>
-        <p>Her ürün, taze malzemelerle ve aynı gün hazırlanır.</p>
+    <!-- Right column: text + pillars -->
+    <div class="about-col-right">
+      <div class="about-text-block reveal">
+        <p class="first">
+          Markamızın çıkış noktası, eski bir tarif yorumundan ilham alan kat kat ballı pasta fikridir.
+          Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta
+          markasıdır.
+        </p>
+        <p>
+          Üretim sürecimizde <strong>kalite ve hijyen</strong> ön plandadır. Her ürün; günlük üretim
+          anlayışıyla, özenle seçilmiş malzemeler kullanılarak ve profesyonel pastacılık standartlarına
+          uygun şekilde hazırlanır.
+        </p>
+        <p>
+          Bizim için iyi bir pasta sadece güzel görünmekten ibaret değildir. Doku, hafiflik, aroma
+          dengesi ve her lokmada aynı kaliteyi sunabilmek önceliğimizdir. Bu nedenle tüm üretim süreci
+          titizlikle yürütülür.
+        </p>
+        <p>
+          Bakinka'nın temel yaklaşımı gerçek lezzete odaklanmaktır. <em>Yoğun değil dengeli, ağır değil
+          zarif, sıradan değil karakter sahibi</em> bir tat deneyimi sunmayı hedefliyoruz.
+        </p>
+        <p>
+          Yeniköy'de başlayan bu hikâye bugün; kaliteli üretim anlayışı ve özgün lezzetiyle büyümeye
+          devam ediyor.
+        </p>
       </div>
-      <div class="pillar">
-        <span class="num">— 02</span>
-        <h4>Ruhsatlı Atölye</h4>
-        <p>Profesyonel pastacılık standartlarına tam uyum.</p>
-      </div>
-      <div class="pillar">
-        <span class="num">— 03</span>
-        <h4>Doku Dengesi</h4>
-        <p>Hafif, rafine, her lokmada aynı kalite.</p>
-      </div>
-      <div class="pillar">
-        <span class="num">— 04</span>
-        <h4>Karakter</h4>
-        <p>Yoğun değil dengeli; sıradan değil özgün.</p>
+
+      <div class="about-pillars reveal reveal-d2">
+        <div class="pillar">
+          <span class="num">— 01</span>
+          <h4>Günlük Üretim</h4>
+          <p>Her ürün, taze malzemelerle ve aynı gün hazırlanır.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">— 02</span>
+          <h4>Ruhsatlı Atölye</h4>
+          <p>Profesyonel pastacılık standartlarına tam uyum.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">— 03</span>
+          <h4>Doku Dengesi</h4>
+          <p>Hafif, rafine, her lokmada aynı kalite.</p>
+        </div>
+        <div class="pillar">
+          <span class="num">— 04</span>
+          <h4>Karakter</h4>
+          <p>Yoğun değil dengeli; sıradan değil özgün.</p>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="about-signature reveal">
-      <div class="about-signature-l">
-        <em>Bakinka.</em>
-        <small>Kat kat emek, kat kat lezzet.</small>
-      </div>
-      <div class="about-signature-r">
-        Yeniköy Mah.<br>
-        Sarıyer / İstanbul<br>
-        Est. Bakü → 2026
-      </div>
+  <div class="about-signature reveal">
+    <div class="about-signature-l">
+      <em>Bakinka.</em>
+      <small>Kat kat emek, kat kat lezzet.</small>
+    </div>
+    <div class="about-signature-r">
+      Yeniköy Mah.<br>
+      Sarıyer / İstanbul<br>
+      Est. Bakü → 2026
     </div>
   </div>
 </section>
@@ -2137,8 +2156,10 @@ footer{
       <div class="author">— Bakinka'nın çıkış noktası</div>
     </div>
 
+    <!-- FIXED: Image now wrapped in container that fills column height,
+         eliminating big empty gap below short text -->
     <div class="bakinka-story">
-      <div class="reveal">
+      <div class="bakinka-story-text reveal">
         <h3><em>Birebir bir Medovik</em> değildir.</h3>
         <p>
           Temelinde klasik Medovik geleneği olsa da, Bakinka birebir bir Medovik değildir.
@@ -2150,7 +2171,9 @@ footer{
           sonuç ise hem tanıdık hem de yeni bir deneyim oldu.
         </p>
       </div>
-      <img src="images/bakinka3.webp" alt="Bakinka Kat Detayı" class="reveal-img">
+      <div class="bakinka-story-img reveal-img">
+        <img src="images/bakinka3.webp" alt="Bakinka Kat Detayı">
+      </div>
     </div>
 
     <div class="bakinka-process">
@@ -2172,7 +2195,7 @@ footer{
     </div>
 
     <div class="bakinka-story reverse">
-      <div class="reveal reveal-d1">
+      <div class="bakinka-story-text reveal reveal-d1">
         <h3>Gösteriş değil, <em>gerçek lezzet.</em></h3>
         <p>
           Bakinka'nın en önemli özelliği gösterişli olmaya çalışmamasıdır. Lezzetini yoğun şekerden
@@ -2183,7 +2206,9 @@ footer{
           buluşmasıdır. Bir yandan geçmişi hatırlatır, bir yandan da tamamen bugüne aittir.
         </p>
       </div>
-      <img src="images/bakinka5.webp" alt="Bakinka Yan Kesit" class="reveal-img">
+      <div class="bakinka-story-img reveal-img">
+        <img src="images/bakinka5.webp" alt="Bakinka Yan Kesit">
+      </div>
     </div>
 
     <div class="first-bite reveal">
