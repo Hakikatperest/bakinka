@@ -240,9 +240,9 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 }
 .nav-links a:hover::after{width:100%}
 
-.nav-cta{
-  background:var(--ink);
-  color:var(--paper);
+.nav-links a.nav-cta{
+  background:#3d7a3d;
+  color:#ffffff;
   padding:.7rem 1.4rem;
   font-family:'DM Mono',monospace;
   font-size:.7rem;
@@ -254,8 +254,15 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   display:inline-flex;
   align-items:center;
   gap:.5rem;
+  box-shadow:0 4px 14px rgba(61,122,61,.25);
 }
-.nav-cta:hover{background:var(--terracotta);transform:translateY(-2px)}
+.nav-links a.nav-cta:hover{
+  background:#2d5e2d;
+  color:#ffffff;
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(61,122,61,.4);
+}
+.nav-links a.nav-cta::after{display:none !important}
 .nav-cta::after{display:none !important}
 
 .nav-toggle{
