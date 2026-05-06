@@ -315,6 +315,9 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   padding-bottom:1.2rem;
   border-bottom:1px solid rgba(42,30,21,.15);
   margin-bottom:3rem;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
   font-family:'DM Mono',monospace;
   font-size:.7rem;
   letter-spacing:.3em;
@@ -334,10 +337,13 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 }
 
 .hero-grid{
-  display:grid;
-  grid-template-columns:1.6fr 1fr;
+  display:flex;
+  flex-direction:column;
   gap:3rem;
-  align-items:end;
+  align-items:center;
+  text-align:center;
+  max-width:900px;
+  margin:0 auto;
 }
 
 .hero-headline{
@@ -352,6 +358,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   margin-bottom:1.5rem;
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:.8rem;
   opacity:0;
   animation:slideUp 1s ease 1s forwards;
@@ -400,7 +407,9 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 }
 
 .hero-lead{
-  max-width:540px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
   font-family:'Fraunces',serif;
   font-size:1.3rem;
   font-style:italic;
@@ -418,6 +427,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   margin-top:2.5rem;
   flex-wrap:wrap;
   align-items:center;
+  justify-content:center;
   opacity:0;
   animation:slideUp 1s ease 1.9s forwards;
 }
@@ -467,7 +477,10 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 /* Hero visual side — vertical portrait of bakinka1 */
 .hero-visual{
   position:relative;
-  height:600px;
+  width:100%;
+  max-width:700px;
+  height:520px;
+  margin:0 auto;
   opacity:0;
   animation:visualIn 1.4s cubic-bezier(.65,0,.35,1) .8s forwards;
 }
@@ -507,10 +520,14 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   grid-template-columns:repeat(4,1fr);
   gap:2rem;
   margin-top:5rem;
+  margin-left:auto;
+  margin-right:auto;
+  max-width:900px;
   padding-top:2rem;
   border-top:1px solid rgba(42,30,21,.15);
   opacity:0;
   animation:slideUp 1s ease 2.1s forwards;
+  text-align:center;
 }
 .hero-snippet .num{
   font-family:'Fraunces',serif;
@@ -645,6 +662,9 @@ section{
   gap:.8rem;
   margin-bottom:1rem;
 }
+.section-tag.center{
+  justify-content:center;
+}
 .section-tag::before{
   content:'';
   width:32px;height:1px;
@@ -694,16 +714,21 @@ section{
   position:relative;
 }
 .manifesto-grid{
-  max-width:1300px;
+  max-width:820px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 2fr;
-  gap:4rem;
-  align-items:start;
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
+  text-align:center;
 }
 .manifesto-side{
-  position:sticky;
-  top:7rem;
+  text-align:center;
+}
+.manifesto-side .section-tag{
+  justify-content:center;
+}
+.manifesto-text{
+  text-align:left;
 }
 .manifesto-side h2{
   font-family:'Fraunces',serif;
@@ -724,9 +749,10 @@ section{
   line-height:1.4;
   color:var(--ink);
   margin-bottom:2rem;
-  padding-left:1.5rem;
+  padding:1rem 1.5rem;
   border-left:2px solid var(--honey);
   font-weight:300;
+  text-align:left;
 }
 .manifesto-text p{
   font-family:'Fraunces',serif;
@@ -749,6 +775,7 @@ section{
   gap:.5rem;
   margin-top:2rem;
   flex-wrap:wrap;
+  justify-content:center;
 }
 .manifesto-tags span{
   background:var(--paper-dark);
@@ -770,12 +797,16 @@ section{
   overflow:hidden;
 }
 .about-header{
-  max-width:1280px;
+  max-width:820px;
   margin:0 auto 3rem;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-  align-items:end;
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  text-align:center;
+  align-items:center;
+}
+.about-header .section-tag{
+  justify-content:center;
 }
 .about-header-r{
   font-family:'Fraunces',serif;
@@ -786,21 +817,18 @@ section{
   font-weight:400;
 }
 
-/* FIXED: Switched from rigid 12-col grid to a flexible 2-col layout.
-   Left column = images stacked. Right column = text + pillars stacked.
-   Both columns flow naturally and balance each other without empty space. */
+/* FIXED: Single column centered layout. Everything stacks on a central axis. */
 .about-grid{
-  max-width:1280px;
+  max-width:820px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:2.5rem;
-  align-items:start;
-}
-.about-col-left{
   display:flex;
   flex-direction:column;
-  gap:2rem;
+  gap:2.5rem;
+}
+.about-col-left{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
 }
 .about-col-right{
   display:flex;
@@ -815,7 +843,7 @@ section{
 }
 .about-img-2{
   width:100%;
-  aspect-ratio:4/3;
+  aspect-ratio:4/5;
   object-fit:cover;
   border-radius:2px;
 }
@@ -885,7 +913,7 @@ section{
 }
 
 .about-signature{
-  max-width:1280px;
+  max-width:820px;
   margin:3rem auto 0;
   padding-top:2rem;
   border-top:1px solid rgba(42,30,21,.15);
@@ -959,8 +987,16 @@ section{
   z-index:2;
 }
 .bakinka-banner-inner{
-  max-width:1280px;
+  max-width:900px;
   margin:0 auto;
+  text-align:center;
+}
+.bakinka-banner-tag{
+  justify-content:center;
+}
+.bakinka-banner h2{
+  margin-left:auto;
+  margin-right:auto;
 }
 .bakinka-banner h2{
   font-family:'Fraunces',serif;
@@ -997,7 +1033,7 @@ section{
 /* Inner content blocks */
 .bakinka-content{
   padding:5rem 2.5rem;
-  max-width:1300px;
+  max-width:900px;
   margin:0 auto;
 }
 .bakinka-intro{
@@ -1051,29 +1087,30 @@ section{
   text-transform:uppercase;
 }
 
-/* FIXED: bakinka-story now uses align-items:stretch and image fills available height,
-   so short text blocks don't leave huge empty space. Image height matches text column. */
+/* FIXED: Single column centered. Image above text, both centered on the page. */
 .bakinka-story{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:4rem;
-  align-items:stretch;
-  margin-bottom:4rem;
-}
-.bakinka-story.reverse{direction:rtl}
-.bakinka-story.reverse > *{direction:ltr}
-
-.bakinka-story-text{
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  gap:2.5rem;
+  align-items:center;
+  max-width:820px;
+  margin:0 auto 4rem;
+  text-align:center;
+}
+.bakinka-story.reverse{
+  flex-direction:column;
+}
+
+.bakinka-story-text{
+  width:100%;
 }
 
 .bakinka-story-img{
   position:relative;
   width:100%;
-  min-height:420px;
-  max-height:560px;
+  max-width:680px;
+  height:auto;
+  aspect-ratio:16/10;
   border-radius:2px;
   overflow:hidden;
 }
@@ -1201,14 +1238,29 @@ section{
   line-height:1;
 }
 .medovik-grid{
-  max-width:1200px;
+  max-width:820px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:4rem;
+  display:flex;
+  flex-direction:column;
+  gap:3rem;
   align-items:center;
+  text-align:center;
   position:relative;
   z-index:2;
+}
+.medovik-grid > img{
+  max-width:520px;
+  width:100%;
+}
+.medovik-text{
+  text-align:left;
+  width:100%;
+}
+.medovik-text .section-tag{
+  justify-content:center;
+}
+.medovik-text > .reveal:first-child{
+  text-align:center;
 }
 .medovik img{
   width:100%;
@@ -1444,12 +1496,16 @@ section{
   overflow:hidden;
 }
 .contact-header{
-  max-width:1280px;
+  max-width:820px;
   margin:0 auto 3rem;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-  align-items:end;
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  text-align:center;
+  align-items:center;
+}
+.contact-header .section-tag{
+  justify-content:center;
 }
 .contact-header-r{
   font-family:'Fraunces',serif;
@@ -1461,12 +1517,12 @@ section{
 }
 
 .contact-grid{
-  max-width:1280px;
+  max-width:820px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:1.3fr 1fr;
-  gap:3rem;
-  align-items:start;
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+  align-items:stretch;
 }
 .contact-info{
   background:var(--paper-dark);
@@ -1520,8 +1576,8 @@ section{
 }
 
 .contact-side{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:1.5rem;
 }
 .contact-image{
@@ -1559,13 +1615,18 @@ footer{
   position:relative;
 }
 .footer-grid{
-  max-width:1280px;
+  max-width:900px;
   margin:0 auto;
   display:grid;
   grid-template-columns:1.5fr 1fr 1fr;
   gap:3rem;
   padding-bottom:3rem;
   border-bottom:1px solid rgba(245,237,223,.15);
+  text-align:center;
+  justify-items:center;
+}
+.footer-brand{
+  text-align:center;
 }
 .footer-brand img{
   width:80px;
@@ -1633,7 +1694,7 @@ footer{
   font-weight:400;
 }
 .footer-bottom{
-  max-width:1280px;
+  max-width:900px;
   margin:0 auto;
   padding-top:2rem;
   display:flex;
