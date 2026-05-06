@@ -61,15 +61,14 @@
 
 <style>
 :root{
-  /* New palette: warm editorial — terracotta, honey, espresso, paper */
-  --paper:#F5EDDF;          /* warm cream paper */
-  --paper-dark:#EBDFCA;     /* deeper paper */
-  --honey:#E8A33D;          /* honey gold */
-  --honey-deep:#C68420;     /* deeper honey */
-  --terracotta:#B5532E;     /* warm terracotta accent */
-  --espresso:#2A1E15;       /* deep espresso */
-  --ink:#1A1410;            /* near black */
-  --olive:#5C4A2A;           /* warm olive brown */
+  --paper:#F5EDDF;
+  --paper-dark:#EBDFCA;
+  --honey:#E8A33D;
+  --honey-deep:#C68420;
+  --terracotta:#B5532E;
+  --espresso:#2A1E15;
+  --ink:#1A1410;
+  --olive:#5C4A2A;
   --logo-bg:#fcf0dd;
   --soft:#D9C8AC;
 }
@@ -85,8 +84,6 @@ body{
   font-weight:300;
 }
 img{display:block;max-width:100%}
-
-/* Selection */
 ::selection{background:var(--honey);color:var(--espresso)}
 
 /* ===== Loader ===== */
@@ -134,13 +131,12 @@ img{display:block;max-width:100%}
   animation:lUp .8s ease 1.2s forwards;
 }
 
-/* ===== Top Ticker (always visible date stamp) ===== */
+/* ===== Top Ticker ===== */
 .top-ticker{
   position:fixed;
   top:0;left:0;right:0;
   background:var(--ink);
   color:var(--paper);
-  padding:.5rem 0;
   z-index:1001;
   font-family:'DM Mono',monospace;
   font-size:.7rem;
@@ -293,7 +289,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 }
 @keyframes fadeIn{to{opacity:1}}
 
-/* ===== Hero / Editorial cover ===== */
+/* ===== Hero ===== */
 .hero{
   min-height:100vh;
   position:relative;
@@ -307,7 +303,6 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   position:relative;
 }
 
-/* Top meta row — like a magazine */
 .hero-meta{
   display:flex;
   justify-content:space-between;
@@ -346,9 +341,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   margin:0 auto;
 }
 
-.hero-headline{
-  position:relative;
-}
+.hero-headline{position:relative}
 .hero-issue{
   font-family:'DM Mono',monospace;
   font-size:.75rem;
@@ -380,10 +373,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   margin-bottom:2rem;
   font-variation-settings:"opsz" 144;
 }
-.hero h1 .line{
-  display:block;
-  overflow:hidden;
-}
+.hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{
   display:inline-block;
   opacity:0;
@@ -449,10 +439,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   position:relative;
   overflow:hidden;
 }
-.btn-primary{
-  background:var(--ink);
-  color:var(--paper);
-}
+.btn-primary{background:var(--ink);color:var(--paper)}
 .btn-primary:hover{
   background:var(--terracotta);
   transform:translateY(-2px);
@@ -474,7 +461,7 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
 }
 .btn:hover .btn-arrow{transform:translate(3px,-3px)}
 
-/* Hero visual side — vertical portrait of bakinka1 */
+/* Hero visual */
 .hero-visual{
   position:relative;
   width:100%;
@@ -510,11 +497,8 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   justify-content:space-between;
   align-items:center;
 }
-.hero-visual-caption .num{
-  color:var(--honey);
-}
+.hero-visual-caption .num{color:var(--honey)}
 
-/* Hero bottom row — feature snippets */
 .hero-bottom{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -555,7 +539,6 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   line-height:1.5;
 }
 
-/* Scroll indicator */
 .scroll-mark{
   position:absolute;
   bottom:2rem;right:2.5rem;
@@ -569,14 +552,6 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   gap:.6rem;
   opacity:0;
   animation:fadeIn 1s ease 2.3s forwards;
-}
-.scroll-mark::after{
-  content:'';
-  width:30px;
-  height:1px;
-  background:var(--olive);
-  position:relative;
-  overflow:hidden;
 }
 .scroll-mark .line{
   width:30px;
@@ -635,7 +610,6 @@ nav.scrolled .nav-logo img{height:46px;width:46px}
   margin:0 1.5rem;
   flex-shrink:0;
   border-radius:50%;
-  position:relative;
 }
 @keyframes marquee{
   from{transform:translateX(0)}
@@ -662,9 +636,7 @@ section{
   gap:.8rem;
   margin-bottom:1rem;
 }
-.section-tag.center{
-  justify-content:center;
-}
+.section-tag.center{justify-content:center}
 .section-tag::before{
   content:'';
   width:32px;height:1px;
@@ -690,10 +662,10 @@ section{
   color:var(--terracotta);
 }
 
-/* ===== Reveal animations ===== */
+/* ===== Reveal animations — FIXED: fallback for non-IO browsers / fast scroll ===== */
 .reveal{
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(30px);
   transition:opacity 1s ease,transform 1.2s cubic-bezier(.65,0,.35,1);
 }
 .reveal.active{opacity:1;transform:translateY(0)}
@@ -702,10 +674,21 @@ section{
 .reveal-d3{transition-delay:.45s}
 
 .reveal-img{
+  opacity:0;
+  transition:opacity 1.2s ease, clip-path 1.4s cubic-bezier(.77,0,.175,1);
   clip-path:inset(0 0 100% 0);
-  transition:clip-path 1.4s cubic-bezier(.77,0,.175,1);
 }
-.reveal-img.active{clip-path:inset(0 0 0 0)}
+.reveal-img.active{
+  opacity:1;
+  clip-path:inset(0 0 0 0);
+}
+/* No-JS / reduced motion fallback - always show content */
+.no-js .reveal,
+.no-js .reveal-img{
+  opacity:1 !important;
+  transform:none !important;
+  clip-path:none !important;
+}
 
 /* ===== Manifesto / Intro ===== */
 .manifesto{
@@ -718,22 +701,16 @@ section{
   margin:0 auto;
   display:flex;
   flex-direction:column;
-  gap:3rem;
+  gap:2.5rem;
   text-align:center;
 }
-.manifesto-side{
-  text-align:center;
-}
-.manifesto-side .section-tag{
-  justify-content:center;
-}
-.manifesto-text{
-  text-align:left;
-}
+.manifesto-side{text-align:center}
+.manifesto-side .section-tag{justify-content:center}
+.manifesto-text{text-align:left}
 .manifesto-side h2{
   font-family:'Fraunces',serif;
-  font-size:2.6rem;
-  line-height:1;
+  font-size:clamp(1.9rem,4.5vw,2.6rem);
+  line-height:1.05;
   color:var(--ink);
   letter-spacing:-0.02em;
   font-weight:400;
@@ -744,22 +721,22 @@ section{
 }
 .manifesto-quote{
   font-family:'Fraunces',serif;
-  font-size:1.5rem;
+  font-size:1.4rem;
   font-style:italic;
   line-height:1.4;
   color:var(--ink);
-  margin-bottom:2rem;
-  padding:1rem 1.5rem;
+  margin-bottom:1.6rem;
+  padding:.8rem 1.4rem;
   border-left:2px solid var(--honey);
   font-weight:300;
   text-align:left;
 }
 .manifesto-text p{
   font-family:'Fraunces',serif;
-  font-size:1.15rem;
+  font-size:1.1rem;
   line-height:1.65;
   color:var(--olive);
-  margin-bottom:1.1rem;
+  margin-bottom:1rem;
   font-weight:400;
 }
 .manifesto-text p strong{
@@ -773,7 +750,7 @@ section{
 .manifesto-tags{
   display:flex;
   gap:.5rem;
-  margin-top:2rem;
+  margin-top:1.8rem;
   flex-wrap:wrap;
   justify-content:center;
 }
@@ -789,12 +766,28 @@ section{
   border-radius:100px;
 }
 
-/* ===== Biz Kimiz — asymmetric editorial layout ===== */
+/* ===== Biz Kimiz — TYPOGRAPHIC, NO IMAGES ===== */
 .about{
   background:var(--paper-dark);
   padding:6rem 2.5rem;
   position:relative;
   overflow:hidden;
+}
+.about-watermark{
+  position:absolute;
+  font-family:'Fraunces',serif;
+  font-size:clamp(7rem,14vw,14rem);
+  color:rgba(181,83,46,.06);
+  font-style:italic;
+  font-weight:300;
+  letter-spacing:-0.04em;
+  pointer-events:none;
+  user-select:none;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  line-height:1;
+  white-space:nowrap;
 }
 .about-header{
   max-width:820px;
@@ -804,10 +797,10 @@ section{
   gap:1.5rem;
   text-align:center;
   align-items:center;
+  position:relative;
+  z-index:2;
 }
-.about-header .section-tag{
-  justify-content:center;
-}
+.about-header .section-tag{justify-content:center}
 .about-header-r{
   font-family:'Fraunces',serif;
   font-size:1.2rem;
@@ -817,42 +810,19 @@ section{
   font-weight:400;
 }
 
-/* FIXED: Single column centered layout. Everything stacks on a central axis. */
 .about-grid{
   max-width:820px;
   margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:2.5rem;
+  position:relative;
+  z-index:2;
 }
-.about-col-left{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.5rem;
-}
-.about-col-right{
-  display:flex;
-  flex-direction:column;
-  gap:2.5rem;
-}
-.about-img-1{
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border-radius:2px;
-}
-.about-img-2{
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border-radius:2px;
-}
+
 .about-text-block p{
   font-family:'Fraunces',serif;
-  font-size:1.05rem;
-  line-height:1.65;
+  font-size:1.1rem;
+  line-height:1.7;
   color:var(--olive);
-  margin-bottom:1rem;
+  margin-bottom:1.1rem;
   font-weight:400;
 }
 .about-text-block .first{
@@ -873,18 +843,31 @@ section{
   margin:.15em .15em 0 0;
   font-weight:400;
 }
+.about-text-block em{
+  font-style:italic;
+  color:var(--honey-deep);
+}
+.about-text-block strong{
+  color:var(--ink);
+  font-weight:500;
+}
 
 .about-pillars{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2,1fr);
   gap:1rem;
-  align-content:start;
+  margin-top:2.5rem;
 }
 .pillar{
   background:var(--paper);
-  padding:1.4rem 1.3rem;
+  padding:1.5rem 1.4rem;
   border-radius:2px;
   border:1px solid rgba(42,30,21,.1);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.pillar:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(42,30,21,.08);
 }
 .pillar .num{
   font-family:'DM Mono',monospace;
@@ -922,10 +905,12 @@ section{
   align-items:flex-end;
   flex-wrap:wrap;
   gap:2rem;
+  position:relative;
+  z-index:2;
 }
 .about-signature-l{
   font-family:'Fraunces',serif;
-  font-size:2.6rem;
+  font-size:2.4rem;
   font-style:italic;
   color:var(--ink);
   font-weight:400;
@@ -951,7 +936,7 @@ section{
   line-height:1.8;
 }
 
-/* ===== Bakinka Nedir — full bleed cinematic + sticky scroll ===== */
+/* ===== Bakinka Nedir — banner uses bakinka4 (which exists) ===== */
 .bakinka{
   background:var(--ink);
   color:var(--paper);
@@ -991,13 +976,6 @@ section{
   margin:0 auto;
   text-align:center;
 }
-.bakinka-banner-tag{
-  justify-content:center;
-}
-.bakinka-banner h2{
-  margin-left:auto;
-  margin-right:auto;
-}
 .bakinka-banner h2{
   font-family:'Fraunces',serif;
   font-size:clamp(2.6rem,7vw,6rem);
@@ -1006,7 +984,7 @@ section{
   letter-spacing:-0.03em;
   font-weight:400;
   max-width:1100px;
-  margin-top:.8rem;
+  margin:.8rem auto 0;
 }
 .bakinka-banner h2 em{
   font-style:italic;
@@ -1030,7 +1008,6 @@ section{
   background:var(--honey);
 }
 
-/* Inner content blocks */
 .bakinka-content{
   padding:5rem 2.5rem;
   max-width:900px;
@@ -1050,7 +1027,6 @@ section{
   font-weight:300;
 }
 
-/* Question highlight block */
 .bakinka-question{
   max-width:1100px;
   margin:0 auto 4rem;
@@ -1087,45 +1063,35 @@ section{
   text-transform:uppercase;
 }
 
-/* FIXED: Single column centered. Image above text, both centered on the page. */
+/* Story blocks - text only with decorative elements */
 .bakinka-story{
-  display:flex;
-  flex-direction:column;
-  gap:2.5rem;
-  align-items:center;
   max-width:820px;
   margin:0 auto 4rem;
   text-align:center;
 }
-.bakinka-story.reverse{
-  flex-direction:column;
+.bakinka-story-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:2rem;
 }
-
-.bakinka-story-text{
-  width:100%;
+.bakinka-story-divider .dline{
+  width:60px;
+  height:1px;
+  background:var(--honey);
+  opacity:.4;
 }
-
-.bakinka-story-img{
-  position:relative;
-  width:100%;
-  max-width:680px;
-  height:auto;
-  aspect-ratio:16/10;
-  border-radius:2px;
-  overflow:hidden;
-}
-.bakinka-story-img img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.bakinka-story-divider .dot{
+  width:8px;height:8px;
+  background:var(--honey);
+  border-radius:50%;
 }
 .bakinka-story h3{
   font-family:'Fraunces',serif;
-  font-size:2.4rem;
+  font-size:clamp(2rem,4vw,2.8rem);
   line-height:1.1;
-  margin-bottom:1.2rem;
+  margin-bottom:1.4rem;
   color:var(--honey);
   letter-spacing:-0.02em;
   font-weight:400;
@@ -1134,13 +1100,17 @@ section{
 .bakinka-story p{
   font-family:'Fraunces',serif;
   font-size:1.1rem;
-  line-height:1.65;
+  line-height:1.7;
   color:var(--soft);
   margin-bottom:1rem;
   font-weight:400;
+  text-align:left;
+  max-width:680px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
-/* Process numbers — horizontal */
+/* Process numbers */
 .bakinka-process{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -1216,7 +1186,7 @@ section{
   text-transform:uppercase;
 }
 
-/* ===== Medovik / Heritage ===== */
+/* ===== Medovik / Heritage — TEXT ONLY, no images ===== */
 .medovik{
   background:linear-gradient(180deg,var(--paper-dark) 0%,var(--paper) 100%);
   position:relative;
@@ -1240,38 +1210,22 @@ section{
 .medovik-grid{
   max-width:820px;
   margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:3rem;
-  align-items:center;
-  text-align:center;
   position:relative;
   z-index:2;
+  text-align:center;
 }
-.medovik-grid > img{
-  max-width:520px;
-  width:100%;
-}
+
 .medovik-text{
   text-align:left;
   width:100%;
 }
-.medovik-text .section-tag{
-  justify-content:center;
-}
-.medovik-text > .reveal:first-child{
-  text-align:center;
-}
-.medovik img{
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border-radius:2px;
-}
+.medovik-text .section-tag{justify-content:center}
+.medovik-text > .reveal:first-child{text-align:center}
+
 .medovik-text p{
   font-family:'Fraunces',serif;
   font-size:1.1rem;
-  line-height:1.65;
+  line-height:1.7;
   color:var(--olive);
   margin-bottom:1rem;
   font-weight:400;
@@ -1282,10 +1236,10 @@ section{
   color:var(--ink);
   margin-bottom:1.5rem;
   line-height:1.5;
+  text-align:center;
 }
 .medovik-text em.honey{color:var(--honey-deep);font-style:italic;font-weight:500}
 
-/* Etymology mini-card */
 .etym{
   background:var(--ink);
   color:var(--paper);
@@ -1303,6 +1257,7 @@ section{
   color:var(--honey);
   line-height:1;
   font-weight:400;
+  flex-shrink:0;
 }
 .etym .word small{
   display:block;
@@ -1324,7 +1279,6 @@ section{
   font-weight:300;
 }
 
-/* Conclusion line */
 .medovik-final{
   text-align:center;
   max-width:900px;
@@ -1338,6 +1292,8 @@ section{
   color:var(--ink);
   font-weight:300;
   letter-spacing:-0.01em;
+  position:relative;
+  z-index:2;
 }
 .medovik-final em{
   color:var(--terracotta);
@@ -1412,10 +1368,7 @@ section{
   transition:opacity .4s ease,visibility .4s;
   padding:3rem 1rem;
 }
-.lightbox.open{
-  opacity:1;
-  visibility:visible;
-}
+.lightbox.open{opacity:1;visibility:visible}
 .lightbox-img{
   max-width:90vw;
   max-height:88vh;
@@ -1488,7 +1441,7 @@ section{
   .lightbox-close{top:.8rem;right:.8rem;width:40px;height:40px;font-size:1.2rem}
 }
 
-/* ===== Contact ===== */
+/* ===== Contact — clean, no missing images ===== */
 .contact{
   background:var(--paper);
   padding:6rem 2.5rem;
@@ -1504,9 +1457,7 @@ section{
   text-align:center;
   align-items:center;
 }
-.contact-header .section-tag{
-  justify-content:center;
-}
+.contact-header .section-tag{justify-content:center}
 .contact-header-r{
   font-family:'Fraunces',serif;
   font-size:1.15rem;
@@ -1519,10 +1470,6 @@ section{
 .contact-grid{
   max-width:820px;
   margin:0 auto;
-  display:flex;
-  flex-direction:column;
-  gap:2rem;
-  align-items:stretch;
 }
 .contact-info{
   background:var(--paper-dark);
@@ -1575,28 +1522,10 @@ section{
   color:var(--honey-deep);
 }
 
-.contact-side{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1.5rem;
-}
-.contact-image{
-  position:relative;
-  width:100%;
-  aspect-ratio:1/1;
-  overflow:hidden;
-  border-radius:2px;
-}
-.contact-image img{
-  width:100%;height:100%;
-  object-fit:cover;
-  transition:transform 1s ease;
-}
-.contact-image:hover img{transform:scale(1.05)}
-
 .contact-map{
   width:100%;
-  height:280px;
+  height:320px;
+  margin-top:.5rem;
   border-radius:2px;
   overflow:hidden;
   border:1px solid rgba(42,30,21,.15);
@@ -1625,9 +1554,7 @@ footer{
   text-align:center;
   justify-items:center;
 }
-.footer-brand{
-  text-align:center;
-}
+.footer-brand{text-align:center}
 .footer-brand img{
   width:80px;
   height:80px;
@@ -1671,12 +1598,8 @@ footer{
   margin-bottom:1.5rem;
   font-weight:500;
 }
-.footer-col ul{
-  list-style:none;
-}
-.footer-col li{
-  margin-bottom:.7rem;
-}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.7rem}
 .footer-col a{
   font-family:'Fraunces',serif;
   font-size:1rem;
@@ -1708,7 +1631,7 @@ footer{
   text-transform:uppercase;
 }
 
-/* ===== Floating Call Button (Mobile only) ===== */
+/* ===== Floating Call Button ===== */
 .call-fab{
   position:fixed;
   bottom:1.2rem;
@@ -1774,26 +1697,13 @@ footer{
   50%{box-shadow:0 12px 30px rgba(181,83,46,.45),0 4px 12px rgba(42,30,21,.25),0 0 0 14px rgba(181,83,46,0)}
 }
 
-/* ===== Mobile ===== */
+/* ===== Responsive ===== */
 @media (max-width:1024px){
-  .hero-grid{grid-template-columns:1fr;gap:3rem}
-  .hero-visual{height:480px;order:-1}
   .hero-bottom{grid-template-columns:repeat(2,1fr);gap:2rem}
-  .manifesto-grid{grid-template-columns:1fr;gap:3rem}
-  .manifesto-side{position:static}
-  .about-header{grid-template-columns:1fr;gap:2rem}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .about-pillars{grid-template-columns:1fr 1fr}
-  .bakinka-story,.bakinka-story.reverse{
-    grid-template-columns:1fr;gap:2.5rem;direction:ltr;
-  }
-  .bakinka-story-img{min-height:380px;max-height:480px}
-  .bakinka-process{grid-template-columns:1fr;}
+  .bakinka-process{grid-template-columns:1fr}
   .proc{border-right:none;border-bottom:1px solid rgba(232,163,61,.2)}
   .proc:last-child{border-bottom:none}
-  .medovik-grid{grid-template-columns:1fr;gap:3rem}
-  .contact-header{grid-template-columns:1fr;gap:2rem}
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
   .footer-brand{grid-column:1/-1}
 }
@@ -1835,57 +1745,66 @@ footer{
 
   .side-year{display:none}
 
-  .hero{padding:8rem 1.2rem 3rem}
-  .hero-meta{font-size:.6rem;letter-spacing:.2em;flex-wrap:wrap;gap:.6rem}
+  .hero{padding:7rem 1.2rem 3rem;min-height:auto}
+  .hero-meta{font-size:.6rem;letter-spacing:.2em;flex-wrap:wrap;gap:.6rem;justify-content:center}
   .hero-meta-mid{display:none}
-  .hero-bottom{grid-template-columns:1fr;gap:1.5rem;margin-top:3rem}
+  .hero-grid{gap:2.5rem}
+  .hero-visual{height:360px}
+  .hero-bottom{grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3rem}
+  .hero-snippet .num{font-size:1.8rem}
+  .hero-snippet .desc{font-size:.85rem}
   .scroll-mark{display:none}
 
-  section{padding:5rem 1.2rem}
-  .manifesto{padding:5rem 1.2rem}
-  .manifesto-side h2{font-size:2rem}
-  .manifesto-quote{font-size:1.3rem;padding-left:1.2rem}
+  section{padding:4rem 1.2rem}
+  .manifesto{padding:4rem 1.2rem}
+  .manifesto-side h2{font-size:1.8rem}
+  .manifesto-quote{font-size:1.2rem;padding-left:1rem;padding-right:0}
 
-  .about{padding:5rem 1.2rem}
-  .about-pillars{grid-template-columns:1fr}
-  .about-signature{flex-direction:column;align-items:flex-start}
-  .about-signature-l{font-size:2.2rem}
+  .about{padding:4rem 1.2rem}
+  .about-pillars{grid-template-columns:1fr;gap:.8rem}
+  .about-signature{flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .about-signature-l{font-size:2rem}
   .about-signature-r{text-align:left}
 
-  .bakinka-banner{height:70vh;min-height:480px}
-  .bakinka-banner-content{padding:4rem 1.2rem 2.5rem}
-  .bakinka-content{padding:5rem 1.2rem}
-  .bakinka-question{padding:2.5rem 1.5rem}
-  .bakinka-intro p{font-size:1.15rem}
-  .bakinka-story-img{min-height:340px;max-height:420px}
+  .bakinka-banner{height:60vh;min-height:420px}
+  .bakinka-banner-content{padding:3rem 1.2rem 2rem}
+  .bakinka-content{padding:4rem 1.2rem}
+  .bakinka-question{padding:2rem 1.4rem}
+  .bakinka-intro p{font-size:1.1rem}
+  .bakinka-story{margin-bottom:3rem}
+  .bakinka-story p{font-size:1rem}
 
-  .medovik{padding:5rem 1.2rem}
+  .medovik{padding:4rem 1.2rem}
   .etym{flex-direction:column;align-items:flex-start;gap:1rem}
 
   .gallery-track .gi{width:240px;height:300px}
-  .marquee-track span{font-size:1.4rem;margin:0 1.4rem}
+  .marquee{padding:1.5rem 0}
+  .marquee-track span{font-size:1.3rem;margin:0 1.2rem}
   .marquee-track .star{width:10px;height:10px;margin:0 .8rem}
 
-  .contact{padding:5rem 1.2rem}
-  .contact-info{padding:2rem 1.5rem}
-  .contact-row{flex-direction:column;gap:.6rem}
+  .contact{padding:4rem 1.2rem}
+  .contact-info{padding:1.8rem 1.4rem}
+  .contact-row{flex-direction:column;gap:.5rem;padding:1.2rem 0}
   .contact-label{width:auto;padding-top:0}
-  .contact-value{font-size:1.15rem}
+  .contact-value{font-size:1.1rem}
   .contact-map{height:240px}
 
-  footer{padding:4rem 1.2rem 2rem}
-  .footer-grid{grid-template-columns:1fr;gap:2rem}
-  .footer-brand-name{font-size:2rem}
-  .footer-bottom{flex-direction:column;gap:.5rem}
+  footer{padding:3rem 1.2rem 2rem}
+  .footer-grid{grid-template-columns:1fr;gap:2rem;padding-bottom:2rem}
+  .footer-brand-name{font-size:1.8rem}
+  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;justify-content:center}
 }
 
 @media (max-width:480px){
-  .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
-  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero h1{font-size:clamp(2.4rem,11vw,3.4rem)}
+  .hero-cta{flex-direction:column;align-items:stretch;width:100%}
   .btn{justify-content:center}
+  .hero-bottom{grid-template-columns:1fr;gap:1rem}
   .call-fab{padding:.85rem 1.1rem .85rem .95rem;font-size:.68rem}
   .call-fab .fab-icon{width:30px;height:30px}
   .call-fab .fab-icon svg{width:14px;height:14px}
+  .first-bite blockquote{font-size:1.5rem}
+  .bakinka-question blockquote{font-size:1.4rem}
 }
 
 /* Reduced motion */
@@ -1896,10 +1815,11 @@ footer{
     transition-duration:.01ms !important;
   }
   .marquee-track,.gallery-track{animation:none}
+  .reveal,.reveal-img{opacity:1 !important;transform:none !important;clip-path:none !important}
 }
 </style>
 </head>
-<body>
+<body class="no-js">
 
 <!-- Loader -->
 <div class="loader" id="loader">
@@ -1948,7 +1868,7 @@ footer{
 <!-- Side year stamp -->
 <div class="side-year">Est. Bakü → Yeniköy</div>
 
-<!-- HERO — Editorial cover -->
+<!-- HERO -->
 <section class="hero" id="anasayfa">
   <div class="hero-frame">
     <div class="hero-meta">
@@ -2031,7 +1951,6 @@ footer{
     <span class="italic">Günlük Üretim</span><span class="star"></span>
     <span>Zarif Bir Bakü Dokunuşu</span><span class="star"></span>
     <span class="italic">Sarıyer · İstanbul</span><span class="star"></span>
-    <!-- duplicate -->
     <span>Kat Kat Emek</span><span class="star"></span>
     <span class="italic">Kat Kat Lezzet</span><span class="star"></span>
     <span>Bakü'den Yeniköy'e</span><span class="star"></span>
@@ -2041,7 +1960,7 @@ footer{
   </div>
 </div>
 
-<!-- MANIFESTO / INTRO — full text from anasayfa block -->
+<!-- MANIFESTO -->
 <section class="manifesto">
   <div class="manifesto-grid">
     <div class="manifesto-side reveal">
@@ -2080,7 +1999,7 @@ footer{
   </div>
 </section>
 
-<!-- Gallery strip — clickable lightbox -->
+<!-- Gallery strip -->
 <div class="gallery" id="gallery">
   <div class="gallery-track">
     <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1"></div>
@@ -2090,7 +2009,6 @@ footer{
     <div class="gi" data-src="images/bakinka7.webp"><img src="images/bakinka7.webp" alt="Bakinka 7"></div>
     <div class="gi" data-src="images/bakinka2.webp"><img src="images/bakinka2.webp" alt="Bakinka 2"></div>
     <div class="gi" data-src="images/bakinka5.webp"><img src="images/bakinka5.webp" alt="Bakinka 5"></div>
-    <!-- duplicate for seamless loop -->
     <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1"></div>
     <div class="gi" data-src="images/bakinka4.webp"><img src="images/bakinka4.webp" alt="Bakinka 4"></div>
     <div class="gi" data-src="images/bakinka6.webp"><img src="images/bakinka6.webp" alt="Bakinka 6"></div>
@@ -2101,8 +2019,10 @@ footer{
   </div>
 </div>
 
-<!-- BIZ KIMIZ — restructured: 2 columns, both flow naturally -->
+<!-- BIZ KIMIZ — typographic, no images -->
 <section class="about" id="biz-kimiz">
+  <div class="about-watermark">Bakinka</div>
+
   <div class="about-header">
     <div class="reveal">
       <span class="section-tag"><span class="num">№ 02</span> Biz Kimiz</span>
@@ -2115,61 +2035,52 @@ footer{
   </div>
 
   <div class="about-grid">
-    <!-- Left column: stacked images -->
-    <div class="about-col-left">
-      <img src="images/bakinka2.webp" alt="Bakinka Atölyesi" class="about-img-1 reveal-img">
-      <img src="images/bakinka6.webp" alt="Bakinka Pasta Detayı" class="about-img-2 reveal-img">
+    <div class="about-text-block reveal">
+      <p class="first">
+        Markamızın çıkış noktası, eski bir tarif yorumundan ilham alan kat kat ballı pasta fikridir.
+        Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta
+        markasıdır.
+      </p>
+      <p>
+        Üretim sürecimizde <strong>kalite ve hijyen</strong> ön plandadır. Her ürün; günlük üretim
+        anlayışıyla, özenle seçilmiş malzemeler kullanılarak ve profesyonel pastacılık standartlarına
+        uygun şekilde hazırlanır.
+      </p>
+      <p>
+        Bizim için iyi bir pasta sadece güzel görünmekten ibaret değildir. Doku, hafiflik, aroma
+        dengesi ve her lokmada aynı kaliteyi sunabilmek önceliğimizdir. Bu nedenle tüm üretim süreci
+        titizlikle yürütülür.
+      </p>
+      <p>
+        Bakinka'nın temel yaklaşımı gerçek lezzete odaklanmaktır. <em>Yoğun değil dengeli, ağır değil
+        zarif, sıradan değil karakter sahibi</em> bir tat deneyimi sunmayı hedefliyoruz.
+      </p>
+      <p>
+        Yeniköy'de başlayan bu hikâye bugün; kaliteli üretim anlayışı ve özgün lezzetiyle büyümeye
+        devam ediyor.
+      </p>
     </div>
 
-    <!-- Right column: text + pillars -->
-    <div class="about-col-right">
-      <div class="about-text-block reveal">
-        <p class="first">
-          Markamızın çıkış noktası, eski bir tarif yorumundan ilham alan kat kat ballı pasta fikridir.
-          Bugün Bakinka, İstanbul'da faaliyet gösteren profesyonel ekip tarafından üretilen bir pasta
-          markasıdır.
-        </p>
-        <p>
-          Üretim sürecimizde <strong>kalite ve hijyen</strong> ön plandadır. Her ürün; günlük üretim
-          anlayışıyla, özenle seçilmiş malzemeler kullanılarak ve profesyonel pastacılık standartlarına
-          uygun şekilde hazırlanır.
-        </p>
-        <p>
-          Bizim için iyi bir pasta sadece güzel görünmekten ibaret değildir. Doku, hafiflik, aroma
-          dengesi ve her lokmada aynı kaliteyi sunabilmek önceliğimizdir. Bu nedenle tüm üretim süreci
-          titizlikle yürütülür.
-        </p>
-        <p>
-          Bakinka'nın temel yaklaşımı gerçek lezzete odaklanmaktır. <em>Yoğun değil dengeli, ağır değil
-          zarif, sıradan değil karakter sahibi</em> bir tat deneyimi sunmayı hedefliyoruz.
-        </p>
-        <p>
-          Yeniköy'de başlayan bu hikâye bugün; kaliteli üretim anlayışı ve özgün lezzetiyle büyümeye
-          devam ediyor.
-        </p>
+    <div class="about-pillars reveal reveal-d2">
+      <div class="pillar">
+        <span class="num">— 01</span>
+        <h4>Günlük Üretim</h4>
+        <p>Her ürün, taze malzemelerle ve aynı gün hazırlanır.</p>
       </div>
-
-      <div class="about-pillars reveal reveal-d2">
-        <div class="pillar">
-          <span class="num">— 01</span>
-          <h4>Günlük Üretim</h4>
-          <p>Her ürün, taze malzemelerle ve aynı gün hazırlanır.</p>
-        </div>
-        <div class="pillar">
-          <span class="num">— 02</span>
-          <h4>Ruhsatlı Atölye</h4>
-          <p>Profesyonel pastacılık standartlarına tam uyum.</p>
-        </div>
-        <div class="pillar">
-          <span class="num">— 03</span>
-          <h4>Doku Dengesi</h4>
-          <p>Hafif, rafine, her lokmada aynı kalite.</p>
-        </div>
-        <div class="pillar">
-          <span class="num">— 04</span>
-          <h4>Karakter</h4>
-          <p>Yoğun değil dengeli; sıradan değil özgün.</p>
-        </div>
+      <div class="pillar">
+        <span class="num">— 02</span>
+        <h4>Ruhsatlı Atölye</h4>
+        <p>Profesyonel pastacılık standartlarına tam uyum.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">— 03</span>
+        <h4>Doku Dengesi</h4>
+        <p>Hafif, rafine, her lokmada aynı kalite.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">— 04</span>
+        <h4>Karakter</h4>
+        <p>Yoğun değil dengeli; sıradan değil özgün.</p>
       </div>
     </div>
   </div>
@@ -2187,7 +2098,7 @@ footer{
   </div>
 </section>
 
-<!-- BAKINKA NEDIR — full bleed banner -->
+<!-- BAKINKA NEDIR — uses bakinka4 (exists) -->
 <section class="bakinka" id="bakinka-nedir">
   <div class="bakinka-banner">
     <img src="images/bakinka4.webp" alt="Bakinka — Geniş kompozisyon">
@@ -2217,24 +2128,23 @@ footer{
       <div class="author">— Bakinka'nın çıkış noktası</div>
     </div>
 
-    <!-- FIXED: Image now wrapped in container that fills column height,
-         eliminating big empty gap below short text -->
-    <div class="bakinka-story">
-      <div class="bakinka-story-text reveal">
-        <h3><em>Birebir bir Medovik</em> değildir.</h3>
-        <p>
-          Temelinde klasik Medovik geleneği olsa da, Bakinka birebir bir Medovik değildir.
-          Tarifin katman yapısı yeniden çalışıldı, krema dengesi hafifletildi, bal aroması
-          daha rafine hale getirildi.
-        </p>
-        <p>
-          Tatlı yoğunluğu Türk damak tadına daha uygun bir şekle getirildi. Ortaya çıkan
-          sonuç ise hem tanıdık hem de yeni bir deneyim oldu.
-        </p>
+    <!-- Story 1 - text only with divider -->
+    <div class="bakinka-story reveal">
+      <div class="bakinka-story-divider">
+        <span class="dline"></span>
+        <span class="dot"></span>
+        <span class="dline"></span>
       </div>
-      <div class="bakinka-story-img reveal-img">
-        <img src="images/bakinka3.webp" alt="Bakinka Kat Detayı">
-      </div>
+      <h3><em>Birebir bir Medovik</em> değildir.</h3>
+      <p>
+        Temelinde klasik Medovik geleneği olsa da, Bakinka birebir bir Medovik değildir.
+        Tarifin katman yapısı yeniden çalışıldı, krema dengesi hafifletildi, bal aroması
+        daha rafine hale getirildi.
+      </p>
+      <p>
+        Tatlı yoğunluğu Türk damak tadına daha uygun bir şekle getirildi. Ortaya çıkan
+        sonuç ise hem tanıdık hem de yeni bir deneyim oldu.
+      </p>
     </div>
 
     <div class="bakinka-process">
@@ -2255,21 +2165,22 @@ footer{
       </div>
     </div>
 
-    <div class="bakinka-story reverse">
-      <div class="bakinka-story-text reveal reveal-d1">
-        <h3>Gösteriş değil, <em>gerçek lezzet.</em></h3>
-        <p>
-          Bakinka'nın en önemli özelliği gösterişli olmaya çalışmamasıdır. Lezzetini yoğun şekerden
-          değil; malzeme kalitesinden, katların inceliğinden ve dengeli dokusundan alır.
-        </p>
-        <p>
-          Bugün Bakinka, Bakü'nün nostaljik tat kültürü ile modern şehir hayatının zarif bir
-          buluşmasıdır. Bir yandan geçmişi hatırlatır, bir yandan da tamamen bugüne aittir.
-        </p>
+    <!-- Story 2 - text only -->
+    <div class="bakinka-story reveal reveal-d1">
+      <div class="bakinka-story-divider">
+        <span class="dline"></span>
+        <span class="dot"></span>
+        <span class="dline"></span>
       </div>
-      <div class="bakinka-story-img reveal-img">
-        <img src="images/bakinka5.webp" alt="Bakinka Yan Kesit">
-      </div>
+      <h3>Gösteriş değil, <em>gerçek lezzet.</em></h3>
+      <p>
+        Bakinka'nın en önemli özelliği gösterişli olmaya çalışmamasıdır. Lezzetini yoğun şekerden
+        değil; malzeme kalitesinden, katların inceliğinden ve dengeli dokusundan alır.
+      </p>
+      <p>
+        Bugün Bakinka, Bakü'nün nostaljik tat kültürü ile modern şehir hayatının zarif bir
+        buluşmasıdır. Bir yandan geçmişi hatırlatır, bir yandan da tamamen bugüne aittir.
+      </p>
     </div>
 
     <div class="first-bite reveal">
@@ -2282,11 +2193,10 @@ footer{
   </div>
 </section>
 
-<!-- MEDOVIK / Heritage -->
+<!-- MEDOVIK / Heritage — text only -->
 <section class="medovik" id="medovik">
   <div class="medovik-watermark">Medovik</div>
   <div class="medovik-grid">
-    <img src="images/bakinka7.webp" alt="Medovik Dilim" class="reveal-img">
     <div class="medovik-text">
       <div class="reveal">
         <span class="section-tag"><span class="num">№ 04</span> Medovik Nedir</span>
@@ -2382,7 +2292,7 @@ footer{
       <div class="contact-row">
         <span class="contact-label">— 05 / Konum</span>
         <div class="contact-value" style="width:100%">
-          <div class="contact-map" style="margin-top:.5rem">
+          <div class="contact-map">
             <iframe
               src="https://www.google.com/maps?q=Yeniköy+Mah.+Hacib+Sok.+No:4+Sarıyer+İstanbul&output=embed"
               loading="lazy"
@@ -2390,15 +2300,6 @@ footer{
               title="Bakinka Konum"></iframe>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="contact-side">
-      <div class="contact-image reveal-img">
-        <img src="images/bakinka6.webp" alt="Bakinka">
-      </div>
-      <div class="contact-image reveal-img">
-        <img src="images/bakinka1.webp" alt="Bakinka Pasta">
       </div>
     </div>
   </div>
@@ -2441,7 +2342,7 @@ footer{
   </div>
 </footer>
 
-<!-- Floating Call Button (Mobile) -->
+<!-- Floating Call Button -->
 <a href="tel:+902122234000" class="call-fab" aria-label="Hemen Ara: 0212 223 40 00">
   <span class="fab-icon">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -2464,6 +2365,9 @@ footer{
 </div>
 
 <script>
+// Remove no-js class as soon as JS is available
+document.body.classList.remove('no-js');
+
 // Loader
 window.addEventListener('load',()=>{
   setTimeout(()=>{
@@ -2492,19 +2396,34 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
   });
 });
 
-// Reveal on scroll
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+// Reveal on scroll - with safety fallback
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
 
-document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el));
 
-// ===== Lightbox =====
+  // Safety fallback: if any reveal hasn't activated after 4s on screen, force it
+  setTimeout(()=>{
+    document.querySelectorAll('.reveal:not(.active),.reveal-img:not(.active)').forEach(el=>{
+      const rect=el.getBoundingClientRect();
+      if(rect.top<window.innerHeight && rect.bottom>0){
+        el.classList.add('active');
+      }
+    });
+  },4000);
+}else{
+  // No IO support - show everything
+  document.querySelectorAll('.reveal,.reveal-img').forEach(el=>el.classList.add('active'));
+}
+
+// Lightbox
 (function(){
   const lightbox=document.getElementById('lightbox');
   const lightboxImg=document.getElementById('lightboxImg');
@@ -2513,7 +2432,6 @@ document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el
   const lightboxNext=document.getElementById('lightboxNext');
   const lightboxCounter=document.getElementById('lightboxCounter');
 
-  // Unique image set (deduped from gallery + main story images)
   const images=[
     'images/bakinka1.webp',
     'images/bakinka2.webp',
@@ -2546,7 +2464,6 @@ document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el
   function next(){currentIndex=(currentIndex+1)%images.length;showCurrent();}
   function prev(){currentIndex=(currentIndex-1+images.length)%images.length;showCurrent();}
 
-  // Bind clicks on gallery items
   document.querySelectorAll('.gi[data-src]').forEach(el=>{
     el.addEventListener('click',()=>openLightbox(el.dataset.src));
   });
@@ -2558,7 +2475,6 @@ document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el
     if(e.target===lightbox)closeLightbox();
   });
 
-  // Keyboard navigation
   document.addEventListener('keydown',e=>{
     if(!lightbox.classList.contains('open'))return;
     if(e.key==='Escape')closeLightbox();
@@ -2566,7 +2482,6 @@ document.querySelectorAll('.reveal,.reveal-img').forEach(el=>observer.observe(el
     else if(e.key==='ArrowLeft')prev();
   });
 
-  // Touch swipe
   let startX=0;
   lightbox.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
   lightbox.addEventListener('touchend',e=>{
