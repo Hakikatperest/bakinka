@@ -1852,7 +1852,7 @@ footer{
       </div>
 
       <div class="hero-visual">
-        <img src="images/bakinka5.webp" alt="Bakinka — Bütün pasta">
+        <img src="images/bakinka5.webp" alt="Bakinka — Bütün pasta" fetchpriority="high">
         <div class="hero-visual-caption">
           <span><span class="num">№ 05</span> &nbsp; Bakinka — Whole</span>
           <span>Yeniköy / 2026</span>
@@ -1950,20 +1950,20 @@ footer{
 <!-- Gallery strip -->
 <div class="gallery" id="gallery">
   <div class="gallery-track">
-    <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1"></div>
-    <div class="gi" data-src="images/bakinka4.webp"><img src="images/bakinka4.webp" alt="Bakinka 4"></div>
-    <div class="gi" data-src="images/bakinka6.webp"><img src="images/bakinka6.webp" alt="Bakinka 6"></div>
-    <div class="gi" data-src="images/bakinka3.webp"><img src="images/bakinka3.webp" alt="Bakinka 3"></div>
-    <div class="gi" data-src="images/bakinka7.webp"><img src="images/bakinka7.webp" alt="Bakinka 7"></div>
-    <div class="gi" data-src="images/bakinka2.webp"><img src="images/bakinka2.webp" alt="Bakinka 2"></div>
-    <div class="gi" data-src="images/bakinka5.webp"><img src="images/bakinka5.webp" alt="Bakinka 5"></div>
-    <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1"></div>
-    <div class="gi" data-src="images/bakinka4.webp"><img src="images/bakinka4.webp" alt="Bakinka 4"></div>
-    <div class="gi" data-src="images/bakinka6.webp"><img src="images/bakinka6.webp" alt="Bakinka 6"></div>
-    <div class="gi" data-src="images/bakinka3.webp"><img src="images/bakinka3.webp" alt="Bakinka 3"></div>
-    <div class="gi" data-src="images/bakinka7.webp"><img src="images/bakinka7.webp" alt="Bakinka 7"></div>
-    <div class="gi" data-src="images/bakinka2.webp"><img src="images/bakinka2.webp" alt="Bakinka 2"></div>
-    <div class="gi" data-src="images/bakinka5.webp"><img src="images/bakinka5.webp" alt="Bakinka 5"></div>
+    <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka4.webp"><img src="images/bakinka4.webp" alt="Bakinka 4" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka6.webp"><img src="images/bakinka6.webp" alt="Bakinka 6" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka3.webp"><img src="images/bakinka3.webp" alt="Bakinka 3" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka7.webp"><img src="images/bakinka7.webp" alt="Bakinka 7" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka2.webp"><img src="images/bakinka2.webp" alt="Bakinka 2" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka5.webp"><img src="images/bakinka5.webp" alt="Bakinka 5" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka1.webp"><img src="images/bakinka1.webp" alt="Bakinka 1" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka4.webp"><img src="images/bakinka4.webp" alt="Bakinka 4" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka6.webp"><img src="images/bakinka6.webp" alt="Bakinka 6" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka3.webp"><img src="images/bakinka3.webp" alt="Bakinka 3" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka7.webp"><img src="images/bakinka7.webp" alt="Bakinka 7" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka2.webp"><img src="images/bakinka2.webp" alt="Bakinka 2" loading="lazy"></div>
+    <div class="gi" data-src="images/bakinka5.webp"><img src="images/bakinka5.webp" alt="Bakinka 5" loading="lazy"></div>
   </div>
 </div>
 
@@ -2092,7 +2092,7 @@ footer{
 <!-- BAKINKA NEDIR -->
 <section class="bakinka" id="bakinka-nedir">
   <div class="bakinka-banner">
-    <img src="images/bakinka4.webp" alt="Bakinka — Geniş kompozisyon">
+    <img src="images/bakinka4.webp" alt="Bakinka — Geniş kompozisyon" loading="lazy">
     <div class="bakinka-banner-content">
       <div class="bakinka-banner-inner">
         <span class="bakinka-banner-tag"><span style="color:var(--paper)">№ 03</span> &nbsp; Bakinka Nedir</span>
@@ -2232,7 +2232,7 @@ footer{
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="images/bakinka-logo.png" alt="Bakinka Logo">
+      <img src="images/bakinka-logo.png" alt="Bakinka Logo" loading="lazy">
       <div class="footer-brand-name">Bakinka</div>
       <div class="footer-tag">Pasta &amp; Lezzet Sanatı</div>
       <p class="footer-desc">
@@ -2289,11 +2289,18 @@ footer{
 <script>
 document.body.classList.remove('no-js');
 
-window.addEventListener('load',()=>{
+// Loader: DOMContentLoaded ile gizleniyor - görsellerin yüklenmesini beklemiyor
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',hideLoader);
+}else{
+  hideLoader();
+}
+function hideLoader(){
   setTimeout(()=>{
-    document.getElementById('loader').classList.add('hidden');
-  },600);
-});
+    const l=document.getElementById('loader');
+    if(l)l.classList.add('hidden');
+  },200);
+}
 
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>{
