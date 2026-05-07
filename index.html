@@ -200,11 +200,10 @@ nav.scrolled .nav-logo,
 nav.scrolled .nav-logo-imgwrap{height:46px}
 nav.scrolled .nav-logo-imgwrap{width:46px}
 .nav-logo img{
-  /* Logo'nun gerçek oranı 1562x1038 (3:2). Container 54x54 sabit kalıyor,
-     görsel kendi oranında ve container'dan büyük render ediliyor. */
-  width:340px;
+  /* Padding'siz logo - container'dan biraz büyük olacak şekilde render ediliyor */
+  width:150px;
   height:auto;
-  aspect-ratio:1562/1038;
+  aspect-ratio:7/5;
   object-fit:contain;
   transition:transform .5s cubic-bezier(.65,0,.35,1);
   position:absolute;
@@ -214,7 +213,7 @@ nav.scrolled .nav-logo-imgwrap{width:46px}
   z-index:2;
   pointer-events:none;
 }
-nav.scrolled .nav-logo img{width:290px}
+nav.scrolled .nav-logo img{width:128px}
 .nav-logo-text{
   font-family:'Fraunces',serif;
   font-size:1.6rem;
@@ -222,7 +221,7 @@ nav.scrolled .nav-logo img{width:290px}
   letter-spacing:-0.01em;
   line-height:1;
   font-weight:500;
-  margin-left:11rem;
+  margin-left:6rem;
 }
 .nav-logo-text small{
   display:block;
@@ -1649,12 +1648,12 @@ footer{
   .nav-logo,
   .nav-logo-imgwrap{height:42px}
   .nav-logo-imgwrap{width:42px}
-  .nav-logo img{width:230px;height:auto}
+  .nav-logo img{width:115px;height:auto}
   nav.scrolled .nav-logo,
   nav.scrolled .nav-logo-imgwrap{height:38px}
   nav.scrolled .nav-logo-imgwrap{width:38px}
-  nav.scrolled .nav-logo img{width:200px}
-  .nav-logo-text{font-size:1.2rem;margin-left:7.5rem}
+  nav.scrolled .nav-logo img{width:100px}
+  .nav-logo-text{font-size:1.2rem;margin-left:4.5rem}
   .nav-logo-text small{font-size:.55rem}
 
   .side-year{display:none}
