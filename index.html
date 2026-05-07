@@ -184,12 +184,12 @@ nav.scrolled{
 .nav-logo{
   display:flex;align-items:center;gap:.7rem;
   text-decoration:none;
-  height:54px;
+  height:90px;
   position:relative;
 }
 .nav-logo-imgwrap{
-  width:54px;
-  height:54px;
+  width:130px;
+  height:90px;
   position:relative;
   display:flex;
   align-items:center;
@@ -197,23 +197,16 @@ nav.scrolled{
   flex-shrink:0;
 }
 nav.scrolled .nav-logo,
-nav.scrolled .nav-logo-imgwrap{height:46px}
-nav.scrolled .nav-logo-imgwrap{width:46px}
+nav.scrolled .nav-logo-imgwrap{height:72px}
+nav.scrolled .nav-logo-imgwrap{width:104px}
 .nav-logo img{
-  /* Padding'siz logo - container'dan biraz büyük olacak şekilde render ediliyor */
-  width:150px;
-  height:auto;
-  aspect-ratio:7/5;
+  /* Logo container'a tam sığacak şekilde, padding'siz logo */
+  width:100%;
+  height:100%;
   object-fit:contain;
   transition:transform .5s cubic-bezier(.65,0,.35,1);
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:2;
   pointer-events:none;
 }
-nav.scrolled .nav-logo img{width:128px}
 .nav-logo-text{
   font-family:'Fraunces',serif;
   font-size:1.6rem;
@@ -221,7 +214,7 @@ nav.scrolled .nav-logo img{width:128px}
   letter-spacing:-0.01em;
   line-height:1;
   font-weight:500;
-  margin-left:6rem;
+  margin-left:.5rem;
 }
 .nav-logo-text small{
   display:block;
@@ -1646,14 +1639,12 @@ footer{
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
   .nav-logo,
-  .nav-logo-imgwrap{height:42px}
-  .nav-logo-imgwrap{width:42px}
-  .nav-logo img{width:115px;height:auto}
+  .nav-logo-imgwrap{height:64px}
+  .nav-logo-imgwrap{width:92px}
   nav.scrolled .nav-logo,
-  nav.scrolled .nav-logo-imgwrap{height:38px}
-  nav.scrolled .nav-logo-imgwrap{width:38px}
-  nav.scrolled .nav-logo img{width:100px}
-  .nav-logo-text{font-size:1.2rem;margin-left:4.5rem}
+  nav.scrolled .nav-logo-imgwrap{height:54px}
+  nav.scrolled .nav-logo-imgwrap{width:78px}
+  .nav-logo-text{font-size:1.2rem;margin-left:.4rem}
   .nav-logo-text small{font-size:.55rem}
 
   .side-year{display:none}
