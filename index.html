@@ -182,41 +182,10 @@ nav.scrolled{
   box-shadow:0 2px 12px rgba(42,30,21,.04);
 }
 .nav-logo{
-  display:flex;align-items:center;gap:.7rem;
+  display:flex;align-items:center;
   text-decoration:none;
-  /* Container'ın yüksekliği aynı, sadece logo büyüyecek */
   height:54px;
-  position:relative;
 }
-.nav-logo-imgwrap{
-  width:54px;
-  height:54px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  background:#f9e0c0;
-  border-radius:50%;
-}
-nav.scrolled .nav-logo,
-nav.scrolled .nav-logo-imgwrap{height:46px}
-nav.scrolled .nav-logo-imgwrap{width:46px}
-.nav-logo img{
-  /* Logo 3x büyütüldü, container alanı aynı kaldı (overflow ile taşıyor) */
-  height:162px;
-  width:162px;
-  object-fit:contain;
-  transition:transform .5s cubic-bezier(.65,0,.35,1);
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:2;
-  pointer-events:none;
-}
-nav.scrolled .nav-logo img{height:138px;width:138px}
-.nav-logo:hover img{transform:translate(-50%,-50%) rotate(-8deg) scale(1.06)}
 .nav-logo-text{
   font-family:'Fraunces',serif;
   font-size:1.6rem;
@@ -224,7 +193,6 @@ nav.scrolled .nav-logo img{height:138px;width:138px}
   letter-spacing:-0.01em;
   line-height:1;
   font-weight:500;
-  margin-left:3rem;
 }
 .nav-logo-text small{
   display:block;
@@ -1527,12 +1495,12 @@ footer{
   align-items:flex-start;
 }
 .footer-brand img{
-  width:72px;
-  height:72px;
+  width:144px;
+  height:144px;
   margin-bottom:1.2rem;
   border-radius:50%;
   background:var(--logo-bg);
-  padding:8px;
+  padding:14px;
   object-fit:contain;
 }
 .footer-brand-name{
@@ -1681,7 +1649,7 @@ footer{
   .proc:last-child{border-bottom:none}
   .footer-grid{grid-template-columns:1.4fr 1fr;gap:2.5rem}
   .footer-brand{grid-column:1/-1;flex-direction:row;align-items:center;gap:1.5rem;flex-wrap:wrap}
-  .footer-brand img{margin-bottom:0;width:64px;height:64px}
+  .footer-brand img{margin-bottom:0;width:128px;height:128px}
   .footer-desc{margin-top:0;flex:1;min-width:280px}
 }
 
@@ -1715,15 +1683,9 @@ footer{
   .nav-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
   .nav-toggle.open span:nth-child(2){opacity:0}
   .nav-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-  .nav-logo,
-  .nav-logo-imgwrap{height:42px}
-  .nav-logo-imgwrap{width:42px}
-  .nav-logo img{height:126px;width:126px}
-  nav.scrolled .nav-logo,
-  nav.scrolled .nav-logo-imgwrap{height:38px}
-  nav.scrolled .nav-logo-imgwrap{width:38px}
-  nav.scrolled .nav-logo img{height:114px;width:114px}
-  .nav-logo-text{font-size:1.2rem;margin-left:2.2rem}
+  .nav-logo{height:42px}
+  nav.scrolled .nav-logo{height:38px}
+  .nav-logo-text{font-size:1.2rem}
   .nav-logo-text small{font-size:.55rem}
 
   .side-year{display:none}
@@ -1772,9 +1734,15 @@ footer{
 
   footer{padding:3rem 1.2rem 2rem}
   .footer-grid{grid-template-columns:1fr;gap:2.5rem;padding-bottom:2rem;text-align:center}
-  .footer-brand{align-items:center;text-align:center}
+  .footer-brand{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:1rem;
+  }
+  .footer-brand img{margin-bottom:.5rem;width:128px;height:128px}
   .footer-brand-name{font-size:1.8rem}
-  .footer-desc{margin-left:auto;margin-right:auto}
+  .footer-desc{margin-left:auto;margin-right:auto;margin-top:.5rem}
   .footer-col{text-align:center}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;justify-content:center}
 }
@@ -1829,9 +1797,6 @@ footer{
 <!-- Navigation -->
 <nav id="nav">
   <a href="#anasayfa" class="nav-logo" aria-label="Bakinka Anasayfa">
-    <span class="nav-logo-imgwrap">
-      <img src="images/bakinka-logo.png" alt="Bakinka Logo">
-    </span>
     <div class="nav-logo-text">
       Bakinka
       <small>Pasta &amp; Lezzet Sanatı</small>
