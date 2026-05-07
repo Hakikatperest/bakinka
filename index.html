@@ -93,7 +93,7 @@ img{display:block;max-width:100%}
   z-index:9999;
   display:flex;align-items:center;justify-content:center;
   flex-direction:column;
-  transition:opacity 0.9s ease,visibility 0.9s;
+  transition:opacity 0.4s ease,visibility 0.4s;
 }
 .loader.hidden{opacity:0;visibility:hidden}
 .loader-mark{
@@ -110,14 +110,14 @@ img{display:block;max-width:100%}
   display:inline-block;
   opacity:0;
   transform:translateY(110%);
-  animation:lUp .8s cubic-bezier(.65,0,.35,1) forwards;
+  animation:lUp .4s cubic-bezier(.65,0,.35,1) forwards;
 }
 @keyframes lUp{to{opacity:1;transform:translateY(0)}}
 .loader-bar{
   width:0;height:1px;
   background:var(--honey-deep);
   margin-top:1.8rem;
-  animation:lBar 1.2s ease .6s forwards;
+  animation:lBar .5s ease .25s forwards;
 }
 @keyframes lBar{to{width:240px}}
 .loader-tag{
@@ -128,7 +128,7 @@ img{display:block;max-width:100%}
   color:var(--honey-deep);
   text-transform:uppercase;
   opacity:0;
-  animation:lUp .8s ease 1.2s forwards;
+  animation:lUp .4s ease .45s forwards;
 }
 
 /* ===== Top Ticker ===== */
@@ -165,18 +165,20 @@ img{display:block;max-width:100%}
 /* ===== Navigation ===== */
 nav{
   position:fixed;top:32px;left:0;right:0;
-  background:transparent;
+  background:#fcefde;
   z-index:1000;
   padding:1.4rem 2.5rem;
   display:flex;justify-content:space-between;align-items:center;
   transition:all .5s cubic-bezier(.65,0,.35,1);
+  border-bottom:1px solid rgba(42,30,21,.06);
 }
 nav.scrolled{
-  background:rgba(245,237,223,.92);
+  background:rgba(252,239,222,.95);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
   padding:.9rem 2.5rem;
-  border-bottom:1px solid rgba(42,30,21,.08);
+  border-bottom:1px solid rgba(42,30,21,.1);
+  box-shadow:0 2px 12px rgba(42,30,21,.04);
 }
 .nav-logo{
   display:flex;align-items:center;gap:.7rem;
@@ -198,9 +200,9 @@ nav.scrolled .nav-logo,
 nav.scrolled .nav-logo-imgwrap{height:46px}
 nav.scrolled .nav-logo-imgwrap{width:46px}
 .nav-logo img{
-  /* Logo 2x büyütüldü, container alanı aynı kaldı (overflow ile taşıyor) */
-  height:108px;
-  width:108px;
+  /* Logo 3x büyütüldü, container alanı aynı kaldı (overflow ile taşıyor) */
+  height:162px;
+  width:162px;
   object-fit:contain;
   transition:transform .5s cubic-bezier(.65,0,.35,1);
   mix-blend-mode:multiply;
@@ -209,7 +211,7 @@ nav.scrolled .nav-logo-imgwrap{width:46px}
   left:50%;
   transform:translate(-50%,-50%);
 }
-nav.scrolled .nav-logo img{height:92px;width:92px}
+nav.scrolled .nav-logo img{height:138px;width:138px}
 .nav-logo:hover img{transform:translate(-50%,-50%) rotate(-8deg) scale(1.06)}
 .nav-logo-text{
   font-family:'Fraunces',serif;
@@ -218,7 +220,7 @@ nav.scrolled .nav-logo img{height:92px;width:92px}
   letter-spacing:-0.01em;
   line-height:1;
   font-weight:500;
-  margin-left:1.5rem;
+  margin-left:3rem;
 }
 .nav-logo-text small{
   display:block;
@@ -1688,7 +1690,7 @@ footer{
   .nav-links{
     position:fixed;
     top:96px;left:0;right:0;
-    background:var(--paper);
+    background:#fcefde;
     flex-direction:column;
     gap:0;
     padding:2rem;
@@ -1712,12 +1714,12 @@ footer{
   .nav-logo,
   .nav-logo-imgwrap{height:42px}
   .nav-logo-imgwrap{width:42px}
-  .nav-logo img{height:84px;width:84px}
+  .nav-logo img{height:126px;width:126px}
   nav.scrolled .nav-logo,
   nav.scrolled .nav-logo-imgwrap{height:38px}
   nav.scrolled .nav-logo-imgwrap{width:38px}
-  nav.scrolled .nav-logo img{height:76px;width:76px}
-  .nav-logo-text{font-size:1.2rem;margin-left:1rem}
+  nav.scrolled .nav-logo img{height:114px;width:114px}
+  .nav-logo-text{font-size:1.2rem;margin-left:2.2rem}
   .nav-logo-text small{font-size:.55rem}
 
   .side-year{display:none}
@@ -1801,7 +1803,7 @@ footer{
 <!-- Loader -->
 <div class="loader" id="loader">
   <div class="loader-mark">
-    <span style="animation-delay:0s">B</span><span style="animation-delay:.07s">a</span><span style="animation-delay:.14s">k</span><span style="animation-delay:.21s">i</span><span style="animation-delay:.28s">n</span><span style="animation-delay:.35s">k</span><span style="animation-delay:.42s">a</span>
+    <span style="animation-delay:0s">B</span><span style="animation-delay:.03s">a</span><span style="animation-delay:.06s">k</span><span style="animation-delay:.09s">i</span><span style="animation-delay:.12s">n</span><span style="animation-delay:.15s">k</span><span style="animation-delay:.18s">a</span>
   </div>
   <div class="loader-bar"></div>
   <div class="loader-tag">Pasta &amp; Lezzet Sanatı</div>
@@ -1881,9 +1883,9 @@ footer{
       </div>
 
       <div class="hero-visual">
-        <img src="images/bakinka1.webp" alt="Bakinka — Bütün pasta">
+        <img src="images/bakinka5.webp" alt="Bakinka — Bütün pasta">
         <div class="hero-visual-caption">
-          <span><span class="num">№ 01</span> &nbsp; Bakinka — Whole</span>
+          <span><span class="num">№ 05</span> &nbsp; Bakinka — Whole</span>
           <span>Yeniköy / 2026</span>
         </div>
       </div>
@@ -2321,7 +2323,7 @@ document.body.classList.remove('no-js');
 window.addEventListener('load',()=>{
   setTimeout(()=>{
     document.getElementById('loader').classList.add('hidden');
-  },1600);
+  },600);
 });
 
 const nav=document.getElementById('nav');
