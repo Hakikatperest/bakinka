@@ -171,6 +171,7 @@ nav{
   display:flex;justify-content:space-between;align-items:center;
   transition:all .5s cubic-bezier(.65,0,.35,1);
   border-bottom:1px solid rgba(42,30,21,.06);
+  overflow:visible;
 }
 nav.scrolled{
   background:rgba(252,239,222,.95);
@@ -195,6 +196,8 @@ nav.scrolled{
   align-items:center;
   justify-content:center;
   flex-shrink:0;
+  background:#f9e0c0;
+  border-radius:50%;
 }
 nav.scrolled .nav-logo,
 nav.scrolled .nav-logo-imgwrap{height:46px}
@@ -205,11 +208,12 @@ nav.scrolled .nav-logo-imgwrap{width:46px}
   width:162px;
   object-fit:contain;
   transition:transform .5s cubic-bezier(.65,0,.35,1);
-  mix-blend-mode:multiply;
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
+  z-index:2;
+  pointer-events:none;
 }
 nav.scrolled .nav-logo img{height:138px;width:138px}
 .nav-logo:hover img{transform:translate(-50%,-50%) rotate(-8deg) scale(1.06)}
