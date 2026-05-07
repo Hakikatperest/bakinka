@@ -93,7 +93,7 @@ img{display:block;max-width:100%}
   z-index:9999;
   display:flex;align-items:center;justify-content:center;
   flex-direction:column;
-  transition:opacity 0.4s ease,visibility 0.4s;
+  transition:opacity 0.7s ease,visibility 0.7s;
 }
 .loader.hidden{opacity:0;visibility:hidden}
 .loader-mark{
@@ -110,14 +110,14 @@ img{display:block;max-width:100%}
   display:inline-block;
   opacity:0;
   transform:translateY(110%);
-  animation:lUp .4s cubic-bezier(.65,0,.35,1) forwards;
+  animation:lUp .9s cubic-bezier(.65,0,.35,1) forwards;
 }
 @keyframes lUp{to{opacity:1;transform:translateY(0)}}
 .loader-bar{
   width:0;height:1px;
   background:var(--honey-deep);
   margin-top:1.8rem;
-  animation:lBar .5s ease .25s forwards;
+  animation:lBar 1.1s ease .9s forwards;
 }
 @keyframes lBar{to{width:240px}}
 .loader-tag{
@@ -128,7 +128,7 @@ img{display:block;max-width:100%}
   color:var(--honey-deep);
   text-transform:uppercase;
   opacity:0;
-  animation:lUp .4s ease .45s forwards;
+  animation:lUp .9s ease 1.6s forwards;
 }
 
 /* ===== Top Ticker ===== */
@@ -1775,7 +1775,7 @@ footer{
 <!-- Loader -->
 <div class="loader" id="loader">
   <div class="loader-mark">
-    <span style="animation-delay:0s">B</span><span style="animation-delay:.03s">a</span><span style="animation-delay:.06s">k</span><span style="animation-delay:.09s">i</span><span style="animation-delay:.12s">n</span><span style="animation-delay:.15s">k</span><span style="animation-delay:.18s">a</span>
+    <span style="animation-delay:0s">B</span><span style="animation-delay:.09s">a</span><span style="animation-delay:.18s">k</span><span style="animation-delay:.27s">i</span><span style="animation-delay:.36s">n</span><span style="animation-delay:.45s">k</span><span style="animation-delay:.54s">a</span>
   </div>
   <div class="loader-bar"></div>
   <div class="loader-tag">Pasta &amp; Lezzet Sanatı</div>
@@ -2299,7 +2299,7 @@ function hideLoader(){
   setTimeout(()=>{
     const l=document.getElementById('loader');
     if(l)l.classList.add('hidden');
-  },1100);
+  },2600);
 }
 
 const nav=document.getElementById('nav');
